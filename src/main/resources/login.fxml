@@ -7,9 +7,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="752.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="752.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
       <Pane prefHeight="534.0" prefWidth="403.0" style="-fx-background-color: #000000;">
          <children>
@@ -21,13 +22,18 @@
                   <Image url="@diamantele.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="144.0" layoutY="497.0" mnemonicParsing="false" style="-fx-font-family: Elephant;" text="Register Now" />
          </children>
       </Pane>
-      <Button layoutX="545.0" layoutY="329.0" mnemonicParsing="false" onAction="#click" style="-fx-font-family: Elephant;" text="Login" />
-      <TextField layoutX="460.0" layoutY="115.0" prefHeight="48.0" prefWidth="223.0" />
-      <PasswordField layoutX="460.0" layoutY="243.0" prefHeight="48.0" prefWidth="223.0" />
-      <Text layoutX="460.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-font-size: 20;" text="Username" />
-      <Text layoutX="462.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20; -fx-font-family: Elephant;" text="Password" />
+      <Text layoutX="454.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20; -fx-font-family: Elephant;" text="Password" />
+      <Text layoutX="452.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-font-size: 20;" text="Username" />
+      <TextField layoutX="455.0" layoutY="217.0" prefHeight="48.0" prefWidth="223.0" />
+      <Button layoutX="541.0" layoutY="299.0" mnemonicParsing="false" onAction="#click" style="-fx-font-family: Elephant;" text="Login" />
+      <Button layoutX="518.0" layoutY="374.0" mnemonicParsing="false" onAction="#register" style="-fx-font-family: Elephant;" text="Register Now" />
+      <PasswordField layoutX="455.0" layoutY="102.0" prefHeight="48.0" prefWidth="223.0" />
+      <Text layoutX="554.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" wrappingWidth="42.99999380111694">
+         <font>
+            <Font name="Elephant" size="17.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
