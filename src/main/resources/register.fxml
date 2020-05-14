@@ -44,7 +44,7 @@
                   </Text>
                   <Button layoutX="432.0" layoutY="231.0" mnemonicParsing="false" text="Sign up" AnchorPane.rightAnchor="111.0" />
                   <Button layoutX="584.0" layoutY="264.0" mnemonicParsing="false" onAction="#method" prefHeight="25.0" prefWidth="53.0" text="Cancel" />
-                  <ChoiceBox layoutX="120.0" layoutY="231.0" prefHeight="25.0" prefWidth="350.0" />
+                  <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_MENU_ITEM" layoutX="120.0" layoutY="231.0" prefHeight="25.0" prefWidth="350.0" />
                </children>
             </AnchorPane>
         </items>

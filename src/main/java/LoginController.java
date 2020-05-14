@@ -15,18 +15,30 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class LoginController {
+public class LoginController implements Initializable{
+    private ObservableList list=FXCollections.observableArrayList();
     @FXML
     private AnchorPane rootPane ;
     @FXML
-    public Text loginMessage;
+    private Text loginMessage;
     @FXML
-    public PasswordField passwordField;
+    private PasswordField passwordField;
     @FXML
-    public TextField usernameField;
+    private TextField usernameField;
+    @FXML
+    private ChoiceBox<String> choiceBox=new ChoiceBox<>();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loadData(); //choiceBox
+    }
+    private void loadData() { //choiceBox
+        list.addAll("Customer","Employee");
+        choiceBox.getItems().addAll(list);
+    }
 
     @FXML
-    void click(ActionEvent event) {       //login
+    public void click(ActionEvent event) {       //login
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -41,7 +53,7 @@ public class LoginController {
         }
     }
     @FXML
-    void register(ActionEvent event) throws IOException      //register
+    public void register(ActionEvent event) throws IOException      //register
     {
        AnchorPane pane = FXMLLoader.load(getClass().getResource("register.fxml"));
        rootPane.getChildren().setAll(pane);
@@ -52,10 +64,11 @@ public class LoginController {
     private AnchorPane mainPane;
 
     @FXML
-    void method(ActionEvent event) throws IOException {     //cancel
+    public void method(ActionEvent event) throws IOException {     //cancel
         AnchorPane pane = FXMLLoader.load(getClass().getResource("login.fxml"));
         mainPane.getChildren().setAll(pane);
     }
+
 
 
 }
