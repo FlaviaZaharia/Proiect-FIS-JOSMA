@@ -15,8 +15,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class LoginController implements Initializable{
-    private ObservableList list=FXCollections.observableArrayList();
+public class LoginController {
+    //private ObservableList list=FXCollections.observableArrayList();
     @FXML
     private AnchorPane rootPane ;
     @FXML
@@ -25,17 +25,17 @@ public class LoginController implements Initializable{
     private PasswordField passwordField;
     @FXML
     private TextField usernameField;
-    @FXML
-    private ChoiceBox<String> choiceBox=new ChoiceBox<>();
+    //@FXML
+    //private ChoiceBox<String> choiceBox=new ChoiceBox<>();
 
-    @Override
+    /*@Override
     public void initialize(URL location, ResourceBundle resources) {
         loadData(); //choiceBox
     }
     private void loadData() { //choiceBox
         list.addAll("Customer","Employee");
         choiceBox.getItems().addAll(list);
-    }
+    } */
 
     @FXML
     public void click(ActionEvent event) {       //login
@@ -59,16 +59,11 @@ public class LoginController implements Initializable{
        rootPane.getChildren().setAll(pane);
     }
 
-
-    @FXML
-    private AnchorPane mainPane;
-
-    @FXML
+    /*@FXML
     public void method(ActionEvent event) throws IOException {     //cancel
         AnchorPane pane = FXMLLoader.load(getClass().getResource("login.fxml"));
         mainPane.getChildren().setAll(pane);
-    }
-
+    } */
 
 
 }
