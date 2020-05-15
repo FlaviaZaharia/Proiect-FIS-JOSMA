@@ -17,7 +17,7 @@
         <items>
           <AnchorPane fx:id="mainPane" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="598.0" style="-fx-background-color: #000;">
                <children>
-                  <TextField layoutX="60.0" layoutY="36.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
+                  <TextField layoutX="60.0" layoutY="36.0" onAction="#handleRegisterAction" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
                   <Text fill="WHITE" layoutX="23.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" AnchorPane.leftAnchor="23.0" />
                   <Text fill="WHITE" layoutX="23.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" AnchorPane.leftAnchor="23.0" />
                   <Text fill="WHITE" layoutX="23.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" AnchorPane.leftAnchor="23.0" />
@@ -26,17 +26,17 @@
                   <Text fill="WHITE" layoutX="23.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" AnchorPane.leftAnchor="23.0" />
                   <Text fill="WHITE" layoutX="23.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail " AnchorPane.leftAnchor="23.0" />
                   <Text fill="WHITE" layoutX="23.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" AnchorPane.leftAnchor="23.0" />
-                  <TextField layoutX="60.0" layoutY="63.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
-                  <TextField layoutX="60.0" layoutY="91.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
-                  <TextField layoutX="100.0" layoutY="147.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
-                  <TextField layoutX="100.0" layoutY="174.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
-                  <TextField layoutX="100.0" layoutY="203.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
+                  <TextField layoutX="60.0" layoutY="63.0" onAction="#handleRegisterAction" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
+                  <TextField layoutX="60.0" layoutY="91.0" onAction="#handleRegisterAction" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
+                  <TextField layoutX="100.0" layoutY="147.0" onAction="#handleRegisterAction" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
+                  <TextField layoutX="100.0" layoutY="174.0" onAction="#handleRegisterAction" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
+                  <TextField layoutX="100.0" layoutY="203.0" onAction="#handleRegisterAction" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
                   <ImageView fitHeight="159.0" fitWidth="255.0" layoutX="332.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="11.0">
                      <image>
                         <Image url="@diamantele.jpg" />
                      </image>
                   </ImageView>
-                  <PasswordField layoutX="100.0" layoutY="119.0" prefHeight="25.0" prefWidth="218.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
+                  <PasswordField layoutX="100.0" layoutY="119.0" onAction="#handleRegisterAction" prefHeight="25.0" prefWidth="218.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="280.0" />
                   <Text fill="WHITE" layoutX="359.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Form" AnchorPane.rightAnchor="38.680999755859375">
                      <font>
                         <Font name="Elephant Italic" size="21.0" />

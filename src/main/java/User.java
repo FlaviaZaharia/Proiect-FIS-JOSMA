@@ -117,6 +117,11 @@ public class User {
             return "UserDTO{" +
                     "username='" + username + '\'' +
                     ", password='" + password + '\'' +
+                    ", firstname='" + firstName + '\'' +
+                    ", lastname='" + lastName + '\'' +
+                    ", email='" + email + '\'' +
+                    ", address='" + address + '\'' +
+                    ", number='" + number + '\'' +
                     ", role='" + role + '\'' +
                     '}';
         }
