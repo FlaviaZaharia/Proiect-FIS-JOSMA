@@ -20,10 +20,15 @@ import java.lang.String;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonReader;
+import javax.swing.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
+
 
 public class RegisterController implements Initializable{
     private ObservableList list=FXCollections.observableArrayList();
@@ -65,42 +70,45 @@ public class RegisterController implements Initializable{
         list.addAll("Customer","Employee");
         choiceBox.getItems().addAll(list);
     }
+    private void msgbox(String s){
+        JOptionPane.showMessageDialog(null, s);
+    }
     @FXML
     public void afterRegister(ActionEvent event) throws IOException { //signup to login
         if (usernameField.getText() == null || usernameField.getText().isEmpty()) {
-            registerMessage.setText("Please type in a username!");
+            msgbox("Please type in a username!");
             return;
         }
 
         if (passwordField.getText() == null || passwordField.getText().isEmpty()) {
-            registerMessage.setText("Password cannot be empty");
+            msgbox("Password cannot be empty");
             return;
         }
         if (firstNameField.getText() == null || firstNameField.getText().isEmpty()) {
-            registerMessage.setText("First name cannot be empty");
+            msgbox("First name cannot be empty");
             return;
         }
 
         if (lastNameField.getText() == null || lastNameField.getText().isEmpty()) {
-            registerMessage.setText("Last name cannot be empty");
+            msgbox("Last name cannot be empty");
             return;
         }
         if (emailField.getText() == null || emailField.getText().isEmpty()) {
-            registerMessage.setText("Email cannot be empty");
+            msgbox("Email cannot be empty");
             return;
         }
 
         if (addressField.getText() == null || addressField.getText().isEmpty()) {
-            registerMessage.setText("Address cannot be empty");
+            msgbox("Address cannot be empty");
             return;
         }
         if (numberField.getText() == null || numberField.getText().isEmpty()) {
-            registerMessage.setText("Number cannot be");
+            msgbox("Number cannot be");
             return;
         }
 
         if (choiceBox.getValue() == null || choiceBox.getValue().isEmpty()) {
-            registerMessage.setText("Role cannot be empty");
+            msgbox("Role cannot be empty");
             return;
         }
       handleRegistrationAction();
@@ -112,11 +120,11 @@ public class RegisterController implements Initializable{
 
 
   public void readFromFile(JSONArray x ){ //read from file
-        File file=new File("D:\\JOSMA\\src\\main\\resources\\user.json");
+        File file=new File("src\\main\\resources\\user.json");
       if(file.length()!=0) {
           JSONParser jsonParser = new JSONParser();
           try {
-              JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\user.json"));
+              JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\main\\resources\\user.json"));
               JSONArray jsonArray = (JSONArray) jsonObject.get("user");
 
                   for (int i = 0; i < jsonArray.size(); i++) {
@@ -141,7 +149,8 @@ public class RegisterController implements Initializable{
         JSONObject list=new JSONObject();
         readFromFile(use);
         obj.put("User:",usernameField.getText());
-        obj.put("Password:",passwordField.getText());
+        //obj.put("Password:",passwordField.getText());
+        obj.put("Password:",UserService.cryptPassword(passwordField.getText()));
         obj.put("First Name:",firstNameField.getText());
         obj.put("Last Name:",lastNameField.getText());
         obj.put("Email:",emailField.getText());
@@ -154,7 +163,7 @@ public class RegisterController implements Initializable{
         try {
 
             // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("D:\\JOSMA\\src\\main\\resources\\user.json");
+            file = new FileWriter("src\\main\\resources\\user.json");
             file.write(list.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -172,6 +181,6 @@ public class RegisterController implements Initializable{
 
     }
 
-    }
+     }
 
 

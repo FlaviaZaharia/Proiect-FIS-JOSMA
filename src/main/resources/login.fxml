@@ -26,14 +26,14 @@
       </Pane>
       <Text layoutX="454.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20; -fx-font-family: Elephant;" text="Password" />
       <Text layoutX="452.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-font-size: 20;" text="Username" />
-      <TextField layoutX="455.0" layoutY="217.0" prefHeight="48.0" prefWidth="223.0" />
+      <TextField fx:id="usernameField" layoutX="452.0" layoutY="109.0" prefHeight="48.0" prefWidth="223.0" />
       <Button layoutX="541.0" layoutY="299.0" mnemonicParsing="false" onAction="#click" style="-fx-font-family: Elephant;" text="Login" />
       <Button layoutX="518.0" layoutY="374.0" mnemonicParsing="false" onAction="#register" style="-fx-font-family: Elephant;" text="Register Now" />
-      <PasswordField layoutX="455.0" layoutY="102.0" prefHeight="48.0" prefWidth="223.0" />
       <Text layoutX="554.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" wrappingWidth="42.99999380111694">
          <font>
             <Font name="Elephant" size="17.0" />
          </font>
       </Text>
+      <PasswordField fx:id="passwordField" layoutX="452.0" layoutY="219.0" prefHeight="48.0" prefWidth="223.0" />
    </children>
 </AnchorPane>
