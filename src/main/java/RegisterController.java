@@ -74,7 +74,7 @@ public class RegisterController implements Initializable{
         JOptionPane.showMessageDialog(null, s);
     }
     @FXML
-    public void afterRegister(ActionEvent event) throws IOException { //signup to login
+    public void afterRegister(ActionEvent event) throws IOException, ParseException { //signup to login
         if (usernameField.getText() == null || usernameField.getText().isEmpty()) {
             msgbox("Please type in a username!");
             return;
@@ -111,11 +111,42 @@ public class RegisterController implements Initializable{
             msgbox("Role cannot be empty");
             return;
         }
+        if(TestUser(usernameField.getText()).equals("No"))
+        {
+            msgbox("Username already exists");
+            return;
+        }
       handleRegistrationAction();
         AnchorPane pane = FXMLLoader.load(getClass().getResource("login.fxml"));
         mainPane.getChildren().setAll(pane);
 
-        //if (username==null ||)
+    }
+
+
+    public String TestUser (String user) throws org.json.simple.parser.ParseException { //read from file
+        File file=new File("src\\main\\resources\\user.json");
+        String flag="Yes";
+        if(file.length()!=0) {
+            JSONParser jsonParser = new JSONParser();
+            try {
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\main\\resources\\user.json"));
+                JSONArray jsonArray = (JSONArray) jsonObject.get("user");
+                Iterator i=jsonArray.iterator();
+                while(i.hasNext()){
+                    JSONObject innerObj=(JSONObject) i.next();
+                    if (innerObj.get("User:").equals(user))
+                        flag="No";
+                }
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return flag;
     }
 
 
@@ -161,7 +192,6 @@ public class RegisterController implements Initializable{
         list.put("user",use);
 
         try {
-
             // Constructs a FileWriter given a file name, using the platform's default charset
             file = new FileWriter("src\\main\\resources\\user.json");
             file.write(list.toJSONString());

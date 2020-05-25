@@ -19,42 +19,6 @@ import java.text.ParseException;
 import java.util.*;
 
 public class UserService {
-    private static List<User> users;
-    private static final Path USERS_PATH = FileSystem.getPathToFile("config", "users.json");
-
-    public static void loadUsersFromFile() throws IOException {
-
-        if (!Files.exists(USERS_PATH)) {
-            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
-        }
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {
-        });
-    }
-
-    public static void addUser(String username, String password, String firstName, String lastName, String email, String address, String number, String role) throws UsernameAlreadyExistsException {
-        checkUserDoesNotAlreadyExist(username);
-        users.add(new User(username, cryptPassword(password), firstName, lastName, email, address, number, role));
-        persistUsers();
-    }
-
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
-        for (User user : users) {
-            if (Objects.equals(username, user.getUsername()))
-                throw new UsernameAlreadyExistsException(username);
-        }
-    }
-
-    private static void persistUsers() {
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
-        } catch (IOException e) {
-            throw new CouldNotWriteUsersException();
-        }
-    }
 
 
     public static String cryptPassword(String input) {
