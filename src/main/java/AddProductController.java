@@ -75,17 +75,17 @@ public class AddProductController {
             }
         }
     }
-        public void handle_add_product(){
+        public  void handle_add_product(){
 //scriere in user.json
             JSONObject obj = new JSONObject();
             JSONArray use=new JSONArray();
             JSONObject list=new JSONObject();
             readProducts(use);
-            obj.put("Name:",nameField.getText());
-            obj.put("Price:",priceField.getText());
-            obj.put("Material:",materialField.getText());
-            obj.put("Email:",quantityField.getText());
-            obj.put("Address:",IDField.getText());
+            obj.put("Name",nameField.getText());
+            obj.put("Price",priceField.getText());
+            obj.put("Material",materialField.getText());
+            obj.put("Quantity",quantityField.getText());
+            obj.put("ID",IDField.getText());
             use.add(obj);
             list.put("Product",use);
 
