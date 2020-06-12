@@ -43,8 +43,8 @@ public class RegisterController implements Initializable{
      }
     @FXML
     private ChoiceBox<String> choiceBox=new ChoiceBox<>();
-    @FXML
-    private Text registrationMessage;
+    //@FXML
+    //private Text registrationMessage;
     @FXML
     private PasswordField passwordField;
     @FXML
