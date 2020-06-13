@@ -25,6 +25,8 @@ public class AddProductController {
     @FXML
     private TextField IDField;
     @FXML
+    private TextField pictureField;
+    @FXML
     private AnchorPane pane_add;
     private void msgbox(String s){
         JOptionPane.showMessageDialog(null, s);
@@ -49,6 +51,10 @@ public class AddProductController {
         }
         if (IDField.getText() == null || IDField.getText().isEmpty()) {
             msgbox("Please type in an ID!");
+            return;
+        }
+        if (pictureField.getText() == null || pictureField.getText().isEmpty()) {
+            msgbox("Please type in an image source!");
             return;
         }
         handle_add_product();
@@ -86,6 +92,7 @@ public class AddProductController {
             obj.put("Material",materialField.getText());
             obj.put("Quantity",quantityField.getText());
             obj.put("ID",IDField.getText());
+            obj.put("Picture",pictureField.getText());
             use.add(obj);
             list.put("Product",use);
 

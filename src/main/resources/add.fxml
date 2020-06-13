@@ -16,7 +16,9 @@
       <Text layoutX="78.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Price" />
       <Text layoutX="78.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Material" />
       <Text layoutX="77.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Quantity" />
-      <Text layoutX="77.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="ID" wrappingWidth="23.607421875" />
+      <Text layoutX="77.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="ID" wrappingWidth="23.607421875" />
       <Button layoutX="277.0" layoutY="308.0" mnemonicParsing="false" onAction="#addproduct" prefHeight="41.0" prefWidth="77.0" style="-fx-font-family: Elephant;" text="Finish" />
+      <TextField fx:id="pictureField" layoutX="208.0" layoutY="246.0" prefHeight="25.0" prefWidth="216.0" />
+      <Text layoutX="80.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Image source" />
    </children>
 </AnchorPane>
