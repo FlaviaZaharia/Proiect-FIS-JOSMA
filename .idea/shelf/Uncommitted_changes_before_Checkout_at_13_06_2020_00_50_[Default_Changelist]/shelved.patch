@@ -1,0 +1,27 @@
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"JOSMA\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision b8b1ecd9235757a318bcb408348b31d2cafa3563)
++++ .idea/compiler.xml	(date 1591998610411)
+@@ -6,6 +6,7 @@
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
++        <module name="Proiect-FIS-JOSMA" />
+         <module name="JOSMA" />
+       </profile>
+     </annotationProcessing>
+Index: target/classes/productslist.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/productslist.json	(revision b8b1ecd9235757a318bcb408348b31d2cafa3563)
++++ target/classes/productslist.json	(date 1591998272146)
+@@ -1,0 +1,1 @@
++{"Product":[{"Price":"dfbfb","Quantity":"fthhbg","Material":"xbfgth","ID":"3424","Name":"ioahkav"}]}
+\ No newline at end of file
