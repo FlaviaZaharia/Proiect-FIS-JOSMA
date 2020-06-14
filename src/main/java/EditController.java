@@ -120,7 +120,5 @@ public class EditController {
         JOptionPane.showMessageDialog(null, s);
     }
 
-
-
 }
 
