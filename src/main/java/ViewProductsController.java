@@ -1,6 +1,7 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
@@ -47,8 +48,8 @@ public class ViewProductsController implements Initializable {
     private TableColumn<Product,String> col_id;
     @FXML
     private TableColumn<Product,String> col_add;
-    //@FXML
-    //private AnchorPane tablepane;
+    @FXML
+    private AnchorPane tablepane;
     ObservableList<Product> obs= FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,7 +69,16 @@ public class ViewProductsController implements Initializable {
                     String quantity_field=(String) y.get("Quantity");
                     String image_field =(String) y.get("Picture");
                     ImageView img=new ImageView(new Image(this.getClass().getResourceAsStream(image_field)));
-                    obs.add(new Product(name_field,price_field,material_field,quantity_field,code,img));
+                    Button b=new Button("add");
+                    b.setOnAction(event->{
+                        AnchorPane pane = null;
+                        try {
+                            pane = FXMLLoader.load(getClass().getResource("login.fxml"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        tablepane.getChildren().setAll(pane);});
+                    obs.add(new Product(name_field,price_field,material_field,quantity_field,code,img,b));
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

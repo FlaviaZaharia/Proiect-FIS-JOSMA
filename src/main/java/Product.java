@@ -15,14 +15,14 @@ public class Product {
     private ImageView picture;
     private  Button button;
   
-    public Product(String name, String price, String material, String quantity, String id, ImageView picture) {
+    public Product(String name, String price, String material, String quantity, String id, ImageView picture,Button button) {
         this.name = name;
         this.price = price;
         this.material = material;
         this.quantity = quantity;
         this.id = id;
         this.picture = picture;
-        this.button=new Button("add");
+        this.button=button;
     }
 
     public String getName() {
