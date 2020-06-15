@@ -10,12 +10,12 @@ public class AppController {
     private AnchorPane anchor;
 
     public void products(javafx.event.ActionEvent actionEvent) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("cart.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("view-products.fxml"));
         anchor.getChildren().setAll(pane);
     }
 
     public void cart(ActionEvent actionEvent)throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("products.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("cart.fxml"));
         anchor.getChildren().setAll(pane);
     }
 
