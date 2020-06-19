@@ -6,21 +6,17 @@
 
 <AnchorPane fx:id="anchor" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppController">
    <children>
-      <Button layoutX="254.0" layoutY="110.0" mnemonicParsing="false" onAction="#products" text="Products" AnchorPane.topAnchor="110.0">
+      <Button layoutX="249.0" layoutY="102.0" mnemonicParsing="false" onAction="#products" text="Products" AnchorPane.topAnchor="102.0">
          <font>
             <Font name="Elephant" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="271.0" layoutY="151.0" mnemonicParsing="false" onAction="#cart" text="Cart" AnchorPane.topAnchor="151.0">
+      <Button layoutX="207.0" layoutY="186.0" mnemonicParsing="false" onAction="#porder" text="Past Orders/Returns" AnchorPane.topAnchor="186.0">
          <font>
             <Font name="Elephant" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="212.0" layoutY="238.0" mnemonicParsing="false" onAction="#porder" text="Past Orders/Returns" AnchorPane.topAnchor="238.0">
-         <font>
-            <Font name="Elephant" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="259.0" layoutY="192.0" mnemonicParsing="false" onAction="#returnp" style="-fx-font-family: Elephant; -fx-font-size: 15;" text="Return" />
+      <Button layoutX="254.0" layoutY="144.0" mnemonicParsing="false" onAction="#returnp" style="-fx-font-family: Elephant; -fx-font-size: 15;" text="Return" />
+      <Button layoutX="261.0" layoutY="225.0" mnemonicParsing="false" onAction="#logout" style="-fx-font-family: Elephant;" text="Log out" />
    </children>
 </AnchorPane>

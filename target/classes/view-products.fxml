@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="tablepane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewProductsController">
+<AnchorPane fx:id="tablepane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewProductsController">
    <children>
       <TableView fx:id="table" editable="true" layoutY="34.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0">
         <columns>
@@ -21,7 +21,7 @@
       </TableView>
       <Text layoutX="256.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OUR PRODUCTS" />
       <Button layoutY="3.0" mnemonicParsing="false" onAction="#backM" text="back" />
-      <Button layoutX="497.0" layoutY="4.0" mnemonicParsing="false"  prefHeight="26.0" prefWidth="87.0" text="go to cart" />
+      <Button layoutX="497.0" layoutY="4.0" mnemonicParsing="false" onAction="#move" prefHeight="26.0" prefWidth="87.0" text="go to cart" />
 
    </children>
 </AnchorPane>

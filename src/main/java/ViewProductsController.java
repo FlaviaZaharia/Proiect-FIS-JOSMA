@@ -116,6 +116,11 @@ public class ViewProductsController implements Initializable {
                 list.add(obs.get(i));
 
     }
+    @FXML
+    void move(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("cart.fxml"));
+        tablepane.getChildren().setAll(pane);
+    }
 }
 
 

@@ -51,7 +51,7 @@ public class CartController {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("order.fxml"));
         tablepane.getChildren().setAll(pane);
     }
-    public String sum() {
+    public static String sum() {
         float r=0;
         float m,n;
         for(Product p: ViewProductsController.list) {
