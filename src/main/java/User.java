@@ -9,20 +9,12 @@ public class User {
         private String number;
         private String role;
 
-        public User() {
-        }
 
-        public User(String username, String password,String email,String firstName,String lastName,String address,String number,String role) {
+
+        public User(String username) {
             this.username = username;
-            this.password = password;
-            this.email=email;
-            this.firstName=firstName;
-            this.lastName=lastName;
-            this.address=address;
-            this.number=number;
-            this.role = role;
-        }
 
+        }
         public String getUsername() {
             return username;
         }
