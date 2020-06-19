@@ -4,12 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,6 +25,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class LoginController {
@@ -32,7 +38,7 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
     @FXML
-    private TextField usernameField;
+    private  TextField usernameField;
     @FXML
     private ChoiceBox choiceBox;
 
@@ -51,7 +57,23 @@ public class LoginController {
         }
         //if (readUsers(usernameField.getText(),passwordField.getText())) {
              if (getRole(usernameField.getText(),passwordField.getText()).equals("Customer")) {
-                AnchorPane pane1 = FXMLLoader.load(getClass().getResource("app.fxml"));
+            //aici
+                /* FXMLLoader loader=new FXMLLoader();
+                 loader.setLocation(getClass().getResource("make-a-return.fxml"));
+                 try{
+                    loader.load();
+                 }
+                 catch(IOException e){
+                     Logger.getLogger(ReturnProductController.class.getName()).log(Level.SEVERE,null,e);
+                 }
+                 ReturnProductController ret=loader.getController();
+                 ret.handle_return_request(usernameField.getText());
+                 Parent p=loader.getRoot();
+                 Stage stage=new Stage();
+                 stage.setScene(new Scene(p));
+                 stage.showAndWait();
+                 //pana aici*/
+                 AnchorPane pane1 = FXMLLoader.load(getClass().getResource("app.fxml"));
                 rootPane.getChildren().setAll(pane1); }
              else if (getRole(usernameField.getText(),passwordField.getText()).equals("Employee")) {
                  AnchorPane pane2= FXMLLoader.load(getClass().getResource("app2.fxml"));
@@ -65,7 +87,7 @@ public class LoginController {
        AnchorPane pane = FXMLLoader.load(getClass().getResource("register.fxml"));
        rootPane.getChildren().setAll(pane);
     }
-   
+
     public String getRole (String user, String parola) throws org.json.simple.parser.ParseException { //read from file
         File file=new File("src\\main\\resources\\user.json");
         String flag="";
