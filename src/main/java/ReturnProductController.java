@@ -10,6 +10,9 @@ import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -27,7 +30,8 @@ public class ReturnProductController {
     @FXML
     private TextField reason_field;
     private static FileWriter file;
-
+    LocalDate date = LocalDate.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     @FXML
     void cancel(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
@@ -92,6 +96,8 @@ public class ReturnProductController {
         obj.put("Product ID",id_field.getText());
         obj.put("Order code",code_field.getText());
         obj.put("Reason",reason_field.getText());
+        obj.put("Date:",date.format(formatter));
+        obj.put("Request ID",OrderController.generate());
         use.add(obj);
         list.put("Return requests",use);
 

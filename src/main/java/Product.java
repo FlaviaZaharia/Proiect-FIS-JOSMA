@@ -1,6 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -15,7 +16,7 @@ public class Product {
     private String id;
     private ImageView picture;
     private Button button;
-    //private String q;
+
   
     public Product(String name, String price, String material, String quantity, String id, ImageView picture,Button button) {
         this.name = name;
@@ -25,7 +26,6 @@ public class Product {
         this.id = id;
         this.picture = picture;
         this.button=button;
-        //this.q=quantity;
     }
     public Product(String name, String price, String quant, String id) {
         this.name=name;
@@ -61,12 +61,12 @@ public class Product {
     public Button getButton() {
         return button;
     }
-    //public String getQ() { return q;}
+
 
     public void setButton(Button button) {
         this.button = button;
     }
-   // public void setQ(String x) {this.q=x;}
+
 
     public void setName(String name) {
         this.name = name;

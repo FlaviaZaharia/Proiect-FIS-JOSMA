@@ -16,7 +16,10 @@ import javax.swing.*;
 import javax.swing.text.View;
 import java.io.*;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class OrderController implements Initializable {
 
@@ -29,8 +32,10 @@ public class OrderController implements Initializable {
 
     @FXML
     private ChoiceBox<String> choicebox=new ChoiceBox<>();
-
+    private static String order_code;
+    LocalDate date = LocalDate.now();
     private ObservableList list= FXCollections.observableArrayList();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     public void initialize(URL location, ResourceBundle resources) {
         loadData(); //choiceBox
     }
@@ -60,6 +65,17 @@ public class OrderController implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
         order.getChildren().setAll(pane);
     }
+
+
+        public static final String generate(String... args){
+            //generate random UUIDs
+            UUID idOne = UUID.randomUUID();
+            UUID idTwo = UUID.randomUUID();
+            return idOne.toString();
+        }
+
+
+
     public void readFromFile(JSONArray x ){ //read from file
         File file=new File("src/main/resources/orders.json");
         if(file.length()!=0) {
@@ -91,6 +107,9 @@ public class OrderController implements Initializable {
         obj.put("Address",address_field.getText());
         obj.put("Shipping",(String)choicebox.getValue());
         obj.put("Total sum",CartController.sum());
+        obj.put("Order code",OrderController.generate());
+        obj.put("Date",date.format((formatter)));
+        obj.put("Status","Pending");
         for(Product p: ViewProductsController.list)
         {
             JSONObject prod_obj=new JSONObject();

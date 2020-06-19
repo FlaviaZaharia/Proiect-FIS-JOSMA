@@ -12,7 +12,7 @@
       <Text layoutX="16.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Name:" textAlignment="CENTER" wrappingWidth="47.736724853515625" />
       <Text layoutX="14.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Address:" />
       <Text layoutX="12.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Shipping method" wrappingWidth="106.5159912109375" />
-      <Text layoutX="143.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout" textAlignment="CENTER" underline="true" wrappingWidth="298.13671875">
+      <Text layoutX="137.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Checkout" textAlignment="CENTER" underline="true" wrappingWidth="298.13671875">
          <font>
             <Font name="Javanese Text" size="17.0" />
          </font>
