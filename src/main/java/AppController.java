@@ -32,4 +32,9 @@ public class AppController {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("login.fxml"));
         anchor.getChildren().setAll(pane);
     }
+
+    public void pastReturn(ActionEvent actionEvent)throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("returnp.fxml"));
+        anchor.getChildren().setAll(pane);
+    }
 }
