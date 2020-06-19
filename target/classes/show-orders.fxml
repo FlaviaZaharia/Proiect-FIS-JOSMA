@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="ancor" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShowOrders">
+   <children>
+      <Text layoutX="24.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #4682B4;" text="Past Orders" />
+      <TableView fx:id="table" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="code_field" prefWidth="283.0" text="Order code" />
+          <TableColumn fx:id="data_field" prefWidth="61.0" text="Data" />
+            <TableColumn fx:id="total_field" prefWidth="69.0" text="Total" />
+            <TableColumn fx:id="status_field" prefWidth="75.0" text="Status" />
+            <TableColumn fx:id="obs_field" prefWidth="111.0" text="Observations" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

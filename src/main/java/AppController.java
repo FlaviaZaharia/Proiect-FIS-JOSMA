@@ -23,7 +23,7 @@ public class AppController {
 
     @FXML
     public void porder(ActionEvent actionEvent) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("porder.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("show-orders.fxml"));
         anchor.getChildren().setAll(pane);
     }
 
