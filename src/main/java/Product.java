@@ -1,6 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
@@ -10,20 +11,27 @@ public class Product {
     private String name;
     private String price;
     private String material;
-    private String quantity;
+    private TextField quantity;
     private String id;
     private ImageView picture;
-    private  Button button;
-
+    private Button button;
+    private String q;
   
     public Product(String name, String price, String material, String quantity, String id, ImageView picture,Button button) {
         this.name = name;
         this.price = price;
         this.material = material;
-        this.quantity = quantity;
+        this.quantity = new TextField(quantity);
         this.id = id;
         this.picture = picture;
         this.button=button;
+        //this.q=quantity;
+    }
+    public Product(String name, String price, String quant, String id) {
+        this.name=name;
+        this.price=price;
+        this.quantity= new TextField(quant);
+        this.id=id;
     }
 
     public String getName() {
@@ -38,7 +46,7 @@ public class Product {
         return material;
     }
 
-    public String getQuantity() {
+    public TextField getQuantity() {
         return quantity;
     }
 
@@ -53,9 +61,13 @@ public class Product {
     public Button getButton() {
         return button;
     }
+    public String getQ() { return q;}
 
     public void setButton(Button button) {
         this.button = button;
+    }
+    public void setQ(String x) {
+        this.q=x;
     }
 
     public void setName(String name) {
@@ -70,7 +82,7 @@ public class Product {
         this.material = material;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(TextField quantity) {
         this.quantity = quantity;
     }
 
