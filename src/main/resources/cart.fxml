@@ -21,6 +21,7 @@
       <Text layoutX="46.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total sum:" />
       <TextField fx:id="sum_field" layoutX="117.0" layoutY="336.0" />
       <Button layoutX="8.0" layoutY="2.0" mnemonicParsing="false" onAction="#backM" text="back" />
+      <Button layoutX="473.0" layoutY="336.0" mnemonicParsing="false" onAction="#confirm" text="confirm" />
 
     </children>
 </AnchorPane>
