@@ -26,7 +26,6 @@ public class ReturnProductController {
 
     @FXML
     private TextField code_field;
-
     @FXML
     private TextField reason_field;
     private static FileWriter file;
@@ -58,6 +57,7 @@ public class ReturnProductController {
             showMessageDialog(null, "Please type in the reason of the return!");
             return;
         }
+
         handle_return_request();
     }
 

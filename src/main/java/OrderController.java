@@ -114,7 +114,7 @@ public class OrderController implements Initializable {
         for(Product p: ViewProductsController.list)
         {
             JSONObject prod_obj=new JSONObject();
-            prod_obj.put("Name",p.getName());
+            prod_obj.put("Product Name",p.getName());
             prod_obj.put("Quantity",p.getQuantity().getText());
             prod_obj.put("Price",p.getPrice());
             prod_list.add(prod_obj);
