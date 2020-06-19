@@ -14,6 +14,7 @@ public class Product {
     private String id;
     private ImageView picture;
     private  Button button;
+
   
     public Product(String name, String price, String material, String quantity, String id, ImageView picture,Button button) {
         this.name = name;
