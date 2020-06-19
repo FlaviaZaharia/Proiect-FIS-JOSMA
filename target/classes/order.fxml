@@ -19,7 +19,7 @@
       </Text>
       <TextField fx:id="name_field" layoutX="130.0" layoutY="77.0" prefHeight="26.0" prefWidth="394.0" />
       <TextField fx:id="address_field" layoutX="130.0" layoutY="109.0" prefHeight="26.0" prefWidth="394.0" />
-      <Button layoutX="265.0" layoutY="264.0" mnemonicParsing="false" onAction="#finish_order" style="-fx-font-family: Elephant;" text="FINISH" />
+      <Button layoutX="265.0" layoutY="215.0" mnemonicParsing="false" onAction="#finish_order" style="-fx-font-family: Elephant;" text="FINISH" />
       <ChoiceBox fx:id="choicebox" layoutX="130.0" layoutY="143.0" prefHeight="25.0" prefWidth="394.0" />
    </children>
 </AnchorPane>
