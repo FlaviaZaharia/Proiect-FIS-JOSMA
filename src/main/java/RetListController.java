@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,6 +25,9 @@ public class RetListController {
 
     @FXML
     private AnchorPane mainPane;
+
+    @FXML
+    private TableView<ReturnedProduct> table;
 
     @FXML
     private TableColumn<ReturnedProduct,String> col_name;
@@ -75,6 +80,12 @@ public class RetListController {
                 e.printStackTrace();
             }
         }
+        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_pid.setCellValueFactory(new PropertyValueFactory<>("pid"));
+        col_oid.setCellValueFactory(new PropertyValueFactory<>("oid"));
+        col_rdate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        col_obs.setCellValueFactory(new PropertyValueFactory<>("obs"));
+        table.setItems(list);
     }
 
     public String findName(String x) throws org.json.simple.parser.ParseException{
