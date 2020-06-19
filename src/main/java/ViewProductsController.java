@@ -1,12 +1,10 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,12 +14,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class ViewProductsController implements Initializable {
@@ -50,7 +50,10 @@ public class ViewProductsController implements Initializable {
     private TableColumn<Product,String> col_add;
     @FXML
     private AnchorPane tablepane;
-    ObservableList<Product> obs= FXCollections.observableArrayList();
+    private ObservableList<Product> obs= FXCollections.observableArrayList();
+    public static ObservableList<Product> list=FXCollections.observableArrayList();
+    private ObservableList<String> QColumn= FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File file=new File("src/main/resources/productslist.json");
@@ -66,19 +69,21 @@ public class ViewProductsController implements Initializable {
                     String name_field=(String) y.get("Name");
                     String price_field=(String) y.get("Price");
                     String material_field=(String) y.get("Material");
-                    String quantity_field=(String) y.get("Quantity");
+                    //String quantity_field=(String) y.get("Quantity");
                     String image_field =(String) y.get("Picture");
+                    TextField t= new TextField();
+                    String quantity_field = t.getText();
+
                     ImageView img=new ImageView(new Image(this.getClass().getResourceAsStream(image_field)));
                     Button b=new Button("add");
                     b.setOnAction(event->{
-                        AnchorPane pane = null;
-                        try {
-                            pane = FXMLLoader.load(getClass().getResource("login.fxml"));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        tablepane.getChildren().setAll(pane);});
-                    obs.add(new Product(name_field,price_field,material_field,quantity_field,code,img,b));
+                        if(t.getText() == null ||t.getText().isEmpty())
+                        {msgbox("Please fill in the quantity");}
+                        else
+                        {list.add(new Product(name_field,price_field, quantity_field,code));}
+
+                    });
+                    obs.add(new Product(name_field,price_field,material_field, quantity_field,code,img,b));
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -97,6 +102,14 @@ public class ViewProductsController implements Initializable {
         col_add.setCellValueFactory((new PropertyValueFactory<>("button")));
         table.setItems(obs);
 
+    }
+    public void backM(javafx.event.ActionEvent actionEvent) throws IOException{
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
+        tablepane.getChildren().setAll(pane);
+    }
+
+    private void msgbox(String s){
+        JOptionPane.showMessageDialog(null, s);
     }
 }
 
