@@ -64,6 +64,7 @@ public class OrderController implements Initializable {
       handle_write_toJSON();
         AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
         order.getChildren().setAll(pane);
+        ViewProductsController.list.clear();
     }
 
 
