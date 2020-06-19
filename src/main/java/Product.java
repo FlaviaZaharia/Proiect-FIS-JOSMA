@@ -17,7 +17,9 @@ public class Product {
     private ImageView picture;
     private Button button;
 
-  
+    public Product() {
+
+    }
     public Product(String name, String price, String material, String quantity, String id, ImageView picture,Button button) {
         this.name = name;
         this.price = price;

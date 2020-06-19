@@ -30,6 +30,7 @@ public class ReturnProductController {
     @FXML
     private TextField reason_field;
     private static FileWriter file;
+    public static String name;
     LocalDate date = LocalDate.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     @FXML
@@ -46,6 +47,7 @@ public class ReturnProductController {
             showMessageDialog(null, "Please type in the name!");
             return;
         }
+        name=name_field.getText();
         if (id_field.getText() == null || id_field.getText().isEmpty()) {
             showMessageDialog(null, "Please type in the ID of the product!");
             return;
