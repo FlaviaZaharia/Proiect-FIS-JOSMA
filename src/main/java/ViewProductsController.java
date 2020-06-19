@@ -76,14 +76,16 @@ public class ViewProductsController implements Initializable {
 
                     ImageView img=new ImageView(new Image(this.getClass().getResourceAsStream(image_field)));
                     Button b=new Button("add");
+                    obs.add(new Product(name_field,price_field,material_field, quantity_field,code,img,b));
+                    int finalI = i;
                     b.setOnAction(event->{
-                        if(t.getText() == null ||t.getText().isEmpty())
-                        {msgbox("Please fill in the quantity");}
-                        else
-                        {list.add(new Product(name_field,price_field, quantity_field,code));}
+                        quantity(finalI);
+
+                        //if(!t.getText().isEmpty())
+                       // {list.add(new Product(name_field,price_field, quantity_field,code));}
 
                     });
-                    obs.add(new Product(name_field,price_field,material_field, quantity_field,code,img,b));
+
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -110,6 +112,13 @@ public class ViewProductsController implements Initializable {
 
     private void msgbox(String s){
         JOptionPane.showMessageDialog(null, s);
+    }
+
+    public void quantity(int i) {
+
+            if(!obs.get(i).getQuantity().getText().isEmpty())
+                list.add(obs.get(i));
+
     }
 }
 
