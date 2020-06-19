@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class ShowOrders implements Initializable {
@@ -87,30 +88,29 @@ public class ShowOrders implements Initializable {
         obs_field.setCellValueFactory(new PropertyValueFactory<>("observation"));
         table.setItems(obs);
     }
-
-    public  String readjson(String s){
-        String flag="";
+    public String readjson (String s) throws org.json.simple.parser.ParseException { //read from file
         File file=new File("src\\main\\resources\\user.json");
+        String flag="";
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
                 JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\main\\resources\\user.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("user");
-
-                for (int i = 0; i < jsonArray.size(); i++) {
-                JSONObject y=new JSONObject();
-                String num=(String) y.get("First Name:");
-                if(s.equals(num))
-                    flag="yes";
+                Iterator i=jsonArray.iterator();
+                while(i.hasNext()){
+                    JSONObject innerObj=(JSONObject) i.next();
+                    if (innerObj.get("First Name:").equals(s))
+                        flag="yes";
                 }
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (ParseException e) {
-                e.printStackTrace();
             }
+
         }
-       return flag;
+
+        return flag;
     }
 }
