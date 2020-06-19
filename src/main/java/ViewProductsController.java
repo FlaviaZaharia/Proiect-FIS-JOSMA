@@ -80,10 +80,6 @@ public class ViewProductsController implements Initializable {
                     int finalI = i;
                     b.setOnAction(event->{
                         quantity(finalI);
-
-                        //if(!t.getText().isEmpty())
-                       // {list.add(new Product(name_field,price_field, quantity_field,code));}
-
                     });
 
                 }
