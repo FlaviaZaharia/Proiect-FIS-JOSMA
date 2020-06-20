@@ -98,7 +98,7 @@ public class ReturnProductController {
         obj.put("Product ID",id_field.getText());
         obj.put("Order code",code_field.getText());
         obj.put("Reason",reason_field.getText());
-        obj.put("Date:",date.format(formatter));
+        obj.put("Date",date.format(formatter));
         obj.put("Request ID",OrderController.generate());
         use.add(obj);
         list.put("Return requests",use);

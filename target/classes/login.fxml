@@ -12,28 +12,28 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="752.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
-      <Pane prefHeight="534.0" prefWidth="403.0" style="-fx-background-color: #000000;">
+      <Pane prefHeight="534.0" prefWidth="344.0" style="-fx-background-color: #000000;">
          <children>
-            <Text layoutX="116.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #4682B4; -fx-font-family: Elephant; -fx-font-size: 30;" text="Welcome" wrappingWidth="184.13671875" />
-            <Text layoutX="171.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-fill: #4682B4; -fx-font-size: 30;" text="to" />
-            <Text layoutX="90.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-fill: #4682B4; -fx-font-size: 30;" text="Selene Jewelry" />
-            <ImageView fitHeight="154.0" fitWidth="231.0" layoutX="77.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+            <Text layoutX="71.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #4682B4; -fx-font-family: Elephant; -fx-font-size: 30;" text="Welcome" wrappingWidth="184.13671875" />
+            <Text layoutX="123.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-fill: #4682B4; -fx-font-size: 30;" text="to" />
+            <Text layoutX="41.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-fill: #4682B4; -fx-font-size: 30;" text="Selene Jewelry" />
+            <ImageView fitHeight="154.0" fitWidth="231.0" layoutX="7.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@diamantele.jpg" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Text layoutX="454.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20; -fx-font-family: Elephant;" text="Password" />
-      <Text layoutX="452.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-font-size: 20;" text="Username" />
-      <TextField fx:id="usernameField" layoutX="452.0" layoutY="109.0" prefHeight="48.0" prefWidth="223.0" />
-      <Button layoutX="541.0" layoutY="299.0" mnemonicParsing="false" onAction="#click" style="-fx-font-family: Elephant;" text="Login" />
-      <Button layoutX="518.0" layoutY="374.0" mnemonicParsing="false" onAction="#register" style="-fx-font-family: Elephant;" text="Register Now" />
-      <Text layoutX="554.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" wrappingWidth="42.99999380111694">
+      <Text layoutX="372.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20; -fx-font-family: Elephant;" text="Password" />
+      <Text layoutX="370.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-font-size: 20;" text="Username" />
+      <TextField fx:id="usernameField" layoutX="370.0" layoutY="116.0" prefHeight="48.0" prefWidth="223.0" />
+      <Button layoutX="446.0" layoutY="299.0" mnemonicParsing="false" onAction="#click" style="-fx-font-family: Elephant;" text="Login" />
+      <Button layoutX="423.0" layoutY="359.0" mnemonicParsing="false" onAction="#register" style="-fx-font-family: Elephant;" text="Register Now" />
+      <Text layoutX="460.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" wrappingWidth="42.99999380111694">
          <font>
             <Font name="Elephant" size="17.0" />
          </font>
       </Text>
-      <PasswordField fx:id="passwordField" layoutX="452.0" layoutY="219.0" prefHeight="48.0" prefWidth="223.0" />
+      <PasswordField fx:id="passwordField" layoutX="370.0" layoutY="217.0" prefHeight="48.0" prefWidth="223.0" />
    </children>
 </AnchorPane>

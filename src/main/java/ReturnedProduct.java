@@ -7,25 +7,36 @@ public class ReturnedProduct {
     private String name;
     private String pid;
     private String oid;
-    private Label obs;
+    private String obs;
+    private String request;
     private String date;
 
-    public ReturnedProduct(String name, String pid, String oid, Label obs, String date) {
-        //this.uname=uname;
-        this.name=name;
-        this.pid=pid;
-        this.oid=oid;
-        this.obs=obs;
-        this.date=date;
+    public ReturnedProduct(String request,String oid,String pid,String date) {
+        this.pid = pid;
+        this.oid = oid;
+        this.request = request;
+        this.date = date;
+        this.obs="";
     }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+
+    public void setRequest(String request) {
+        this.request = request;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 
     public String getName() {
         return name;
     }
 
-    public Label getObs() {
-        return obs;
-    }
+
 
     public String getOid() {
         return oid;
@@ -43,9 +54,7 @@ public class ReturnedProduct {
         this.name = name;
     }
 
-    public void setObs(Label obs) {
-        this.obs = obs;
-    }
+
 
     public void setOid(String oid) {
         this.oid = oid;

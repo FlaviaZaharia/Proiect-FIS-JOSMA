@@ -57,27 +57,12 @@ public class LoginController {
         }
         //if (readUsers(usernameField.getText(),passwordField.getText())) {
              if (getRole(usernameField.getText(),passwordField.getText()).equals("Customer")) {
-            //aici
-                /* FXMLLoader loader=new FXMLLoader();
-                 loader.setLocation(getClass().getResource("make-a-return.fxml"));
-                 try{
-                    loader.load();
-                 }
-                 catch(IOException e){
-                     Logger.getLogger(ReturnProductController.class.getName()).log(Level.SEVERE,null,e);
-                 }
-                 ReturnProductController ret=loader.getController();
-                 ret.handle_return_request(usernameField.getText());
-                 Parent p=loader.getRoot();
-                 Stage stage=new Stage();
-                 stage.setScene(new Scene(p));
-                 stage.showAndWait();
-                 //pana aici*/
                  AnchorPane pane1 = FXMLLoader.load(getClass().getResource("app.fxml"));
                 rootPane.getChildren().setAll(pane1); }
              else if (getRole(usernameField.getText(),passwordField.getText()).equals("Employee")) {
                  AnchorPane pane2= FXMLLoader.load(getClass().getResource("app2.fxml"));
                  rootPane.getChildren().setAll(pane2);
+
              }
         else showMessageDialog(null,"Incorrect username or password");
     }

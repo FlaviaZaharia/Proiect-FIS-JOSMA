@@ -2,6 +2,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,39 +22,39 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
-public class RetListController {
+public class RetListController implements Initializable {
 
     @FXML
     private AnchorPane mainPane;
-
     @FXML
     private TableView<ReturnedProduct> table;
+    @FXML
+    private TableColumn<ReturnedProduct, String> req_col;
 
     @FXML
-    private TableColumn<ReturnedProduct,String> col_name;
+    private TableColumn<ReturnedProduct, String> order_col;
 
     @FXML
-    private TableColumn<ReturnedProduct,String> col_pid;
+    private TableColumn<ReturnedProduct, String> prod_col;
 
     @FXML
-    private TableColumn<ReturnedProduct,String> col_oid;
+    private TableColumn<ReturnedProduct, String> date_col;
 
     @FXML
-    private TableColumn<ReturnedProduct,String> col_rdate;
+    private TableColumn<ReturnedProduct, String> obs_col;
+    private ObservableList<ReturnedProduct> obs = FXCollections.observableArrayList();
 
-    @FXML
-    private TableColumn<ReturnedProduct,String> col_obs;
-
-    private ObservableList<ReturnedProduct> list= FXCollections.observableArrayList();
     public void back(javafx.event.ActionEvent actionEvent) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
         mainPane.getChildren().setAll(pane);
     }
 
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file=new File("src/main/resources/returns.json");
-        if(file.length()!=0) {
+
+        File file = new File("src/main/resources/returns.json");
+        if (file.length() != 0) {
             JSONParser jsonParser = new JSONParser();
             try {
                 JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/returns.json"));
@@ -61,56 +62,34 @@ public class RetListController {
 
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
-                    String name_field=(String) y.get("Name");
-                    String pid_field=(String) y.get("Product ID");
-                    String oid_field=(String) y.get("Order code");
-                    String date_field=(String) y.get("Date");
-                    Label obs_field=new Label();
-                    if(ReturnProductController.name.equals(name_field)){
-                        String nme=findName(pid_field);
-                        list.add(new ReturnedProduct(nme,pid_field,oid_field,obs_field, date_field));}
+                    String num = (String) y.get("Name");
+                    System.out.println(num);
+                    String result = ShowOrders.readjson(num);
+                    System.out.println(result);
+                    if ("yes".equals(result)) {
+                        String id_r = (String) y.get("Request ID");
+                        String id_o = (String) y.get("Order code");
+                        String id_p = (String) y.get("Product ID");
+                        String d = (String) y.get("Date");
+                        //String observ = (String) y.get("Observations");
+                        obs.add(new ReturnedProduct(id_r, id_o, id_p, d));
+                    }
 
                 }
-            }
-            catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+
+            req_col.setCellValueFactory(new PropertyValueFactory<>("request"));
+            order_col.setCellValueFactory(new PropertyValueFactory<>("oid"));
+            prod_col.setCellValueFactory(new PropertyValueFactory<>("pid"));
+            date_col.setCellValueFactory(new PropertyValueFactory<>("date"));
+            obs_col.setCellValueFactory(new PropertyValueFactory<>("obs"));
+            table.setItems(obs);
         }
-        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        col_pid.setCellValueFactory(new PropertyValueFactory<>("pid"));
-        col_oid.setCellValueFactory(new PropertyValueFactory<>("oid"));
-        col_rdate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        col_obs.setCellValueFactory(new PropertyValueFactory<>("obs"));
-        table.setItems(list);
-    }
-
-    public String findName(String x) throws org.json.simple.parser.ParseException{
-        File file=new File("src\\main\\resources\\productslist.json");
-        String flag="";
-        if(file.length()!=0) {
-            JSONParser jsonParser = new JSONParser();
-            try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\main\\resources\\productslist.json"));
-                JSONArray jsonArray = (JSONArray) jsonObject.get("Product");
-                Iterator i=jsonArray.iterator();
-                while(i.hasNext()){
-                    JSONObject innerObj=(JSONObject) i.next();
-                    if (innerObj.get("Product ID").equals(x))
-                        flag+=innerObj.get("Name");
-                }
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        return flag;
     }
 }

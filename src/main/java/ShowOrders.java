@@ -1,6 +1,8 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -88,7 +90,12 @@ public class ShowOrders implements Initializable {
         obs_field.setCellValueFactory(new PropertyValueFactory<>("observation"));
         table.setItems(obs);
     }
-    public String readjson (String s) throws org.json.simple.parser.ParseException { //read from file
+    @FXML
+    void back(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
+        ancor.getChildren().setAll(pane);
+    }
+    public static String readjson (String s) throws org.json.simple.parser.ParseException { //read from file
         File file=new File("src\\main\\resources\\user.json");
         String flag="";
         if(file.length()!=0) {
