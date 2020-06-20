@@ -66,7 +66,7 @@ public class OrderController implements Initializable {
         {
             System.out.println(p.getId());
             System.out.println(p.getQuantity().getText());
-            StockController.changestock(p.getId(),p.getQuantity().getText());
+            StockController.changestock(p.getQuantity().getText(),p.getId());
 
         }
         AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
