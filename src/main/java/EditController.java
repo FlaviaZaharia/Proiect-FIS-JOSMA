@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -8,7 +9,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.io.*;
 import java.util.Iterator;
 
@@ -120,5 +120,9 @@ public class EditController {
         JOptionPane.showMessageDialog(null, s);
     }
 
+    public void back(ActionEvent actionEvent) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("app2.fxml"));
+        pane_add.getChildren().setAll(pane);
+    }
 }
 
