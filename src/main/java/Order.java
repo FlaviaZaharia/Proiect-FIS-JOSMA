@@ -1,3 +1,6 @@
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
+
 public class Order {
 
     private String code;
@@ -5,12 +8,20 @@ public class Order {
     private String total;
     private String status;
     private String observation;
-    public Order(String code, String data, String total, String status) {
+    private TextField obs;
+    private ChoiceBox<String> ch;
+
+    public Order(String code, String data, String total, String status,String obs) {
         this.code = code;
         this.data = data;
         this.total = total;
         this.status = status;
-        this.observation ="";
+        this.observation =obs;
+    }
+    public Order(String code, String obs, ChoiceBox<String> a) {
+        this.code = code;
+        this.obs =new TextField(obs);
+        this.ch = a;
     }
 
     public String getCode() {
@@ -31,6 +42,22 @@ public class Order {
 
     public String getObservation() {
         return observation;
+    }
+
+    public void setObs(TextField obs) {
+        this.obs = obs;
+    }
+
+    public ChoiceBox<String> getCh() {
+        return ch;
+    }
+
+    public TextField getObs() {
+        return obs;
+    }
+
+    public void setCh(ChoiceBox<String> ch) {
+        this.ch = ch;
     }
 
     public void setCode(String code) {

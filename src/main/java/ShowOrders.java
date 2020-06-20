@@ -68,8 +68,8 @@ public class ShowOrders implements Initializable {
                     String code = (String) y.get("Order code");
                     String data = (String) y.get("Date");
                     String total = (String) y.get("Total sum");
-                    //String observ = (String) y.get("Observations");
-                    obs.add(new Order(code, data, total, status));
+                    String observ = (String) y.get("Observations");
+                    obs.add(new Order(code, data, total, status,observ));
                 }
 
             } }
