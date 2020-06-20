@@ -24,8 +24,6 @@ import java.util.UUID;
 public class OrderController implements Initializable {
 
     @FXML
-    private TextField name_field;
-    @FXML
     private AnchorPane order;
     @FXML
     private TextField address_field;
@@ -49,10 +47,6 @@ public class OrderController implements Initializable {
     }
     @FXML
     void finish_order(ActionEvent event) throws IOException {
-        if (name_field.getText() == null || name_field.getText().isEmpty()) {
-            msgbox("Name cannot be empty!");
-            return;
-        }
 
         if (address_field.getText() == null || address_field.getText().isEmpty()) {
             msgbox("Address cannot be empty");
@@ -85,7 +79,7 @@ public class OrderController implements Initializable {
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/orders.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\orders.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Orders");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
@@ -107,7 +101,7 @@ public class OrderController implements Initializable {
         JSONObject list=new JSONObject();
         JSONArray prod_list=new JSONArray();
         readFromFile(use);
-        obj.put("Name",name_field.getText());
+        obj.put("User",LoginController.user.getUsername()); //aici
         obj.put("Address",address_field.getText());
         obj.put("Shipping",(String)choicebox.getValue());
         obj.put("Total sum",CartController.sum());
@@ -129,7 +123,7 @@ public class OrderController implements Initializable {
 
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("src/main/resources/orders.json");
+            file = new FileWriter("D:\\JOSMA\\src\\main\\resources\\orders.json");
             file.write(list.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();

@@ -59,11 +59,11 @@ public class ShowOrders implements Initializable {
 
                 for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject y = (JSONObject) jsonArray.get(i);
-                String num=(String) y.get("Name");
+                String num=(String) y.get("User");
                 //System.out.println(num);
-                String result=readjson(num);
+                //String result=readjson(num);//aici
                 //System.out.println(result);
-                if("yes".equals(result)) {
+                if(LoginController.user.getUsername().equals(num)) {
                     String status = (String) y.get("Status");
                     String code = (String) y.get("Order code");
                     String data = (String) y.get("Date");
@@ -95,7 +95,7 @@ public class ShowOrders implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
         ancor.getChildren().setAll(pane);
     }
-    public static String readjson (String s) throws org.json.simple.parser.ParseException { //read from file
+    public  String readjson (String s) throws org.json.simple.parser.ParseException { //read from file
         File file=new File("src\\main\\resources\\user.json");
         String flag="";
         if(file.length()!=0) {

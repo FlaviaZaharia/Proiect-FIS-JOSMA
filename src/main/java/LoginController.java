@@ -42,7 +42,7 @@ public class LoginController {
     @FXML
     private ChoiceBox choiceBox;
 
- // public static User user=new User();
+ public static User user=new User();
 
     @FXML
     public void click(ActionEvent event) throws IOException, ParseException {       //login
@@ -57,7 +57,7 @@ public class LoginController {
         }
              if (getRole(usernameField.getText(),passwordField.getText()).equals("Customer")) {
                  AnchorPane pane1 = FXMLLoader.load(getClass().getResource("app.fxml"));
-                rootPane.getChildren().setAll(pane1); //user.setUsername(usernameField.getText());
+                rootPane.getChildren().setAll(pane1); user.setUsername(usernameField.getText()); //aici
                  }
              else if (getRole(usernameField.getText(),passwordField.getText()).equals("Employee")) {
                  AnchorPane pane2= FXMLLoader.load(getClass().getResource("app2.fxml"));
@@ -73,12 +73,12 @@ public class LoginController {
        rootPane.getChildren().setAll(pane);
     }
     public String getRole (String user, String parola) throws org.json.simple.parser.ParseException { //read from file
-        File file=new File("src\\main\\resources\\user.json");
+        File file=new File("D:\\JOSMA\\src\\main\\resources\\user.json");
         String flag="";
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\main\\resources\\user.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\user.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("user");
                 Iterator i=jsonArray.iterator();
                 while(i.hasNext()){
