@@ -19,7 +19,6 @@ import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ReturnRequests implements Initializable {
@@ -59,7 +58,7 @@ public class ReturnRequests implements Initializable {
     }
     ObservableList<ReturnedProduct> aux=FXCollections.observableArrayList();
    ObservableList<ReturnedProduct> prod= FXCollections.observableArrayList();
-   public ArrayList<String> flag=new ArrayList<String>();
+    ObservableList<ReturnedProduct> aux1= FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -79,11 +78,12 @@ public class ReturnRequests implements Initializable {
                     String num=(String) y.get("Name");
                     String data=(String) y.get("Date");
                     String info=(String) y.get("Observations");
-                    TextField t= new TextField();
-                    String obs_field = t.getText();
-                    if(!t.getText().isEmpty())
-                        flag.add("yes");
-                    prod.add(new ReturnedProduct(prod_id,order_id,obs_field,req_id,reason,data,num,info));
+                    if(info.equals("")) {
+                        TextField t = new TextField();
+                        String obs_field = t.getText();
+                        prod.add(new ReturnedProduct(prod_id, order_id, obs_field, req_id, reason, data, num));
+                    }
+                    else aux.add(new ReturnedProduct(prod_id, order_id, info, req_id, reason, data, num));
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -107,7 +107,7 @@ public class ReturnRequests implements Initializable {
     public void write()
     {
         //JSONObject obj = new JSONObject();
-        JSONArray use=new JSONArray(); int i=0;
+        JSONArray use=new JSONArray();
         JSONObject list=new JSONObject();
         for(ReturnedProduct p:aux)
         {
@@ -119,12 +119,9 @@ public class ReturnRequests implements Initializable {
           obj.put("Product ID",p.getPid());
           obj.put("Reason",p.getReason());
           //  System.out.println(p.getReason());
-            if(flag.get(i).equals("yes"))
           obj.put("Observations",p.getObs().getText());
-            else
-                obj.put("Observations",p.getInfo());
          // System.out.println(p.getObs().getText());
-          use.add(obj); i++;
+          use.add(obj);
         }
 
         list.put("Return requests",use);

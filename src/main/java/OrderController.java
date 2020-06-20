@@ -62,9 +62,16 @@ public class OrderController implements Initializable {
             return;
         }
       handle_write_toJSON();
+        for(Product p:ViewProductsController.list)
+        {
+            System.out.println(p.getId());
+            System.out.println(p.getQuantity().getText());
+            StockController.changestock(p.getId(),p.getQuantity().getText());
+
+        }
         AnchorPane pane = FXMLLoader.load(getClass().getResource("app.fxml"));
         order.getChildren().setAll(pane);
-        StockController.changestock();
+        //StockController.changestock();
         ViewProductsController.list.clear();
     }
 
