@@ -7,21 +7,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RetListController">
+<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RetListController">
    <children>
-      <Text layoutX="237.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your past returns:">
+      <Text layoutX="237.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: ELephant;" text="PAST RETURNS">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <TableView fx:id="table" layoutY="50.0" prefHeight="350.0" prefWidth="600.0">
+      <Button layoutY="1.0" mnemonicParsing="false" onAction="#back" text="back" />
+      <TableView fx:id="table" layoutY="51.0" prefHeight="354.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="pid_field" prefWidth="119.199951171875" text="Product ID" />
-            <TableColumn fx:id="oid_field" prefWidth="111.2000732421875" text="Order ID" />
-            <TableColumn fx:id="rdate_field" prefWidth="141.60003662109375" text="Request Date" />
-            <TableColumn fx:id="obs_field" prefWidth="228.0" text="observations" />
+          <TableColumn fx:id="req_col" prefWidth="143.0" text="Request ID" />
+          <TableColumn fx:id="order_col" prefWidth="103.0" text="Order ID" />
+            <TableColumn fx:id="prod_col" prefWidth="90.0" text="Product ID" />
+            <TableColumn fx:id="date_col" prefWidth="130.0" text="Request Date" />
+            <TableColumn fx:id="obs_col" prefWidth="133.0" text="Observation" />
         </columns>
       </TableView>
-      <Button layoutY="1.0" mnemonicParsing="false" onAction="#back" text="back" />
    </children>
 </AnchorPane>
