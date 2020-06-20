@@ -17,10 +17,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -81,9 +78,66 @@ public class EmpOrder implements Initializable {
         mainPane.getChildren().setAll(pane);
     }
 
-    public void apply(ActionEvent actionEvent) {
-
+    public void apply(ActionEvent actionEvent) throws IOException{
+        writeJSON();
+        //msgbox("Changes applied");
     }
+    public void read(JSONArray x, String a, String b, String id) {
+        File file = new File("src/main/resources/orders.json");
+        if (file.length() != 0) {
+            JSONParser jsonParser = new JSONParser();
+            try {
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/orders.json"));
+                JSONArray jsonArray = (JSONArray) jsonObject.get("Order");
+
+                for (int i = 0; i < jsonArray.size(); i++) {
+                    JSONObject y = (JSONObject) jsonArray.get(i);
+                    String code = (String) y.get("Order code");
+                    if (code.equals(id)) {
+                        y.put(a,b);
+                    }
+                    x.add(y);
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    static FileWriter file1;
+    public void writeJSON() {
+        JSONObject obj = new JSONObject();
+        JSONArray use = new JSONArray();
+        JSONObject list1 = new JSONObject();
+        for (Order o : ord) {
+            read(use, "Observations", o.getObs().getText(), o.getCode());
+            read(use, "Status",o.getCh().getValue(),o.getCode());
+        }
+
+        list1.put("Order", use);
+
+        try {
+            // Constructs a FileWriter given a file name, using the platform's default charset
+            file1 = new FileWriter("src/main/resources/orders.json");
+            file1.write(list1.toJSONString());
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        } finally {
+
+            try {
+                file1.flush();
+                file1.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     private void loadData(ChoiceBox<String> a) { //choiceBox
         ObservableList<String> list=FXCollections.observableArrayList();

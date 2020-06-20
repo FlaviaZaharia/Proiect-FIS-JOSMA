@@ -68,74 +68,6 @@ public class OrderController implements Initializable {
         ViewProductsController.list.clear();
     }
 
-   /* public void readstocks(JSONArray x, String a, String b, String id){ //read from file
-        File file=new File("src/main/resources/productslist.json");
-        if(file.length()!=0) {
-            JSONParser jsonParser = new JSONParser();
-            try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/productslist.json"));
-                JSONArray jsonArray = (JSONArray) jsonObject.get("Product");
-
-                for (int i = 0; i < jsonArray.size(); i++) {
-                    JSONObject y= (JSONObject) jsonArray.get(i);
-                    String code=(String) y.get("ID");
-                    if(code.equals(id)) {
-                        String q=(String) y.get("Quantity");
-                        int aux=Integer.valueOf(q);
-                        int aux2=Integer.valueOf((b));
-                        aux=aux-aux2;
-                        y.put(a,String.valueOf(aux));
-                    }
-                    x.add(y);
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    static FileWriter file1;
-    public void changestock(){
-        JSONObject obj = new JSONObject();
-        JSONArray use = new JSONArray();
-        JSONObject list1 = new JSONObject();
-        for(Product p:ViewProductsController.list)
-        {
-        readstocks(use,"Quantity",p.getQuantity().getText(),p.getId());
-        System.out.println(p.getQuantity().getText());
-            System.out.println(p.getId());
-        }
-
-        list1.put("Product", use);
-
-        try {
-            // Constructs a FileWriter given a file name, using the platform's default charset
-            file1 = new FileWriter("src/main/resources/productslist.json");
-            file1.write(list1.toJSONString());
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        } finally {
-
-            try {
-                file1.flush();
-                file1.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-}*/
-
-
-
-
-
     public static final String generate(String... args){
             //generate random UUIDs
             UUID idOne = UUID.randomUUID();
@@ -179,6 +111,7 @@ public class OrderController implements Initializable {
         obj.put("Order code",OrderController.generate());
         obj.put("Date",date.format((formatter)));
         obj.put("Status","Pending");
+        obj.put("Observations","");
         for(Product p: ViewProductsController.list)
         {
             JSONObject prod_obj=new JSONObject();
