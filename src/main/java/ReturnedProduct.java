@@ -22,7 +22,7 @@ public class ReturnedProduct {
         this.info=obs;
     }
 
-    public ReturnedProduct(String pid, String oid, String obs, String request, String reason,String date,String name, String infovechi) {
+    public ReturnedProduct(String pid, String oid, String obs, String request, String reason,String date,String name) {
         this.pid = pid;
         this.oid = oid;
         this.obs = new TextField(obs);
@@ -30,7 +30,7 @@ public class ReturnedProduct {
         this.reason = reason;
         this.date=date;
         this.name=name;
-        this.info=infovechi;
+
     }
 
     public TextField getObs() {
