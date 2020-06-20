@@ -1,4 +1,5 @@
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.util.Date;
 
@@ -7,19 +8,51 @@ public class ReturnedProduct {
     private String name;
     private String pid;
     private String oid;
-    private String obs;
+    private String info;
+    private TextField obs;
     private String request;
     private String date;
+    private String reason;
 
-    public ReturnedProduct(String request,String oid,String pid,String date) {
+    public ReturnedProduct(String request,String oid,String pid,String date,String obs) {
         this.pid = pid;
         this.oid = oid;
         this.request = request;
         this.date = date;
-        this.obs="";
+        this.info=obs;
     }
 
-    public void setObs(String obs) {
+    public ReturnedProduct(String pid, String oid, String obs, String request, String reason,String date,String name) {
+        this.pid = pid;
+        this.oid = oid;
+        this.obs = new TextField(obs);
+        this.request = request;
+        this.reason = reason;
+        this.date=date;
+        this.name=name;
+    }
+
+    public TextField getObs() {
+        return obs;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public String getRequest() {
+        return request;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setObs(TextField obs) {
         this.obs = obs;
     }
 

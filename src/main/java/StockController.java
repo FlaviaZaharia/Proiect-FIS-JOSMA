@@ -16,7 +16,7 @@ public class StockController {
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Product");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
-                    JSONObject y = (JSONObject) jsonArray.get(i);
+                     JSONObject y = (JSONObject) jsonArray.get(i);
                     String code = (String) y.get("ID");
                     if (code.equals(id)) {
                         String q = (String) y.get("Quantity");
@@ -25,6 +25,7 @@ public class StockController {
                         aux = aux - aux2;
                         y.put(a, String.valueOf(aux));
                     }
+                    System.out.println(y.toString());
                     x.add(y);
                 }
             } catch (FileNotFoundException e) {
@@ -41,7 +42,7 @@ public class StockController {
 
     public static  void changestock() {
         JSONObject obj = new JSONObject();
-        JSONArray use = new JSONArray();
+       JSONArray use = new JSONArray();
         JSONObject list1 = new JSONObject();
         for (Product p : ViewProductsController.list) {
             readstocks(use, "Quantity", p.getQuantity().getText(), p.getId());

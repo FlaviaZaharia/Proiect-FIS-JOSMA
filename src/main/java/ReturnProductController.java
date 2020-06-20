@@ -100,6 +100,7 @@ public class ReturnProductController {
         obj.put("Reason",reason_field.getText());
         obj.put("Date",date.format(formatter));
         obj.put("Request ID",OrderController.generate());
+        obj.put("Observations","");
         use.add(obj);
         list.put("Return requests",use);
 
