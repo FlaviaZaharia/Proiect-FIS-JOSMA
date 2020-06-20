@@ -31,6 +31,7 @@ public class AppController {
     void logout(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("login.fxml"));
         anchor.getChildren().setAll(pane);
+        //LoginController.user.setUsername("");
     }
 
     public void pastReturn(ActionEvent actionEvent)throws IOException {

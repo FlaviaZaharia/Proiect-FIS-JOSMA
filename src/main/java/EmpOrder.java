@@ -50,12 +50,15 @@ public class EmpOrder implements Initializable {
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
                     String code = (String) y.get("Order code");
+                    String status=(String) y.get("Status");
+                    String o=(String) y.get("Observations");
                     TextField observ= new TextField();
                     String obs=observ.getText();
                     ChoiceBox<String> c=new ChoiceBox<String>();
-                    //loadData(c);
                     c.getItems().addAll("Pending","Accepted","Rejected","Delivered");
-                    c.setValue("Pending");
+                    c.setValue(status);
+
+                    if(!c.getValue().equals("Delivered")&&!c.getValue().equals("Rejected"))
                     ord.add(new Order(code,obs,c));
 
                 }
@@ -79,8 +82,10 @@ public class EmpOrder implements Initializable {
     }
 
     public void apply(ActionEvent actionEvent) throws IOException{
-        writeJSON();
-        //msgbox("Changes applied");
+
+        for(Order o:ord)
+        writeJSON(o.getCh(),o.getObs().getText(),o.getCode());
+        msgbox("Changes applied");
     }
     public void read(JSONArray x, String a, String b, String id) {
         File file = new File("src/main/resources/orders.json");
@@ -88,13 +93,14 @@ public class EmpOrder implements Initializable {
             JSONParser jsonParser = new JSONParser();
             try {
                 JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/orders.json"));
-                JSONArray jsonArray = (JSONArray) jsonObject.get("Order");
+                JSONArray jsonArray = (JSONArray) jsonObject.get("Orders");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
                     String code = (String) y.get("Order code");
                     if (code.equals(id)) {
-                        y.put(a,b);
+                        y.put("Observations",b);
+                        y.put("Status",a);
                     }
                     x.add(y);
                 }
@@ -108,16 +114,13 @@ public class EmpOrder implements Initializable {
         }
     }
     static FileWriter file1;
-    public void writeJSON() {
+    public void writeJSON(ChoiceBox<String> x,String y,String id) {
         JSONObject obj = new JSONObject();
         JSONArray use = new JSONArray();
         JSONObject list1 = new JSONObject();
-        for (Order o : ord) {
-            read(use, "Observations", o.getObs().getText(), o.getCode());
-            read(use, "Status",o.getCh().getValue(),o.getCode());
-        }
+        read(use,x.getValue(),y,id);
 
-        list1.put("Order", use);
+        list1.put("Orders", use);
 
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
