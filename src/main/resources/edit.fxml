@@ -21,5 +21,6 @@
         <TextField fx:id="pictureField" layoutX="208.0" layoutY="246.0" prefHeight="25.0" prefWidth="216.0" />
         <Text layoutX="80.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Image source" />
       <Text layoutX="80.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT DETAILS" />
+      <Button layoutX="89.0" layoutY="316.0" mnemonicParsing="false" onAction="#back" text="back" />
     </children>
 </AnchorPane>

@@ -51,4 +51,8 @@ public class App2Controller {
         anchor1.getChildren().setAll(pane);
     }
 
+    public void signout(ActionEvent actionEvent) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("login.fxml"));
+        anchor1.getChildren().setAll(pane);
+    }
 }

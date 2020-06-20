@@ -119,5 +119,8 @@ public class AddProductController {
         }
 
 
-
+    public void back(ActionEvent actionEvent) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("app2.fxml"));
+        pane_add.getChildren().setAll(pane);
     }
+}
