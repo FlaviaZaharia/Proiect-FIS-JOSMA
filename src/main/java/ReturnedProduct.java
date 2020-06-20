@@ -22,7 +22,7 @@ public class ReturnedProduct {
         this.info=obs;
     }
 
-    public ReturnedProduct(String pid, String oid, String obs, String request, String reason,String date,String name) {
+    public ReturnedProduct(String pid, String oid, String obs, String request, String reason,String date,String name, String infovechi) {
         this.pid = pid;
         this.oid = oid;
         this.obs = new TextField(obs);
@@ -30,6 +30,7 @@ public class ReturnedProduct {
         this.reason = reason;
         this.date=date;
         this.name=name;
+        this.info=infovechi;
     }
 
     public TextField getObs() {
@@ -99,5 +100,13 @@ public class ReturnedProduct {
 
     public void setUname(String uname) {
         this.uname = uname;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }

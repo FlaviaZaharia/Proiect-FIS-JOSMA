@@ -88,7 +88,7 @@ public class RetListController implements Initializable {
             order_col.setCellValueFactory(new PropertyValueFactory<>("oid"));
             prod_col.setCellValueFactory(new PropertyValueFactory<>("pid"));
             date_col.setCellValueFactory(new PropertyValueFactory<>("date"));
-            obs_col.setCellValueFactory(new PropertyValueFactory<>("obs"));
+            obs_col.setCellValueFactory(new PropertyValueFactory<>("info"));
             table.setItems(obs);
         }
     }
