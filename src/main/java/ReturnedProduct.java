@@ -11,32 +11,19 @@ public class ReturnedProduct {
     private String request;
     private String date;
 
-    public ReturnedProduct(String request,String oid,String pid,String date) {
+    public ReturnedProduct(String request,String oid,String pid,String date, String obs) {
         this.pid = pid;
         this.oid = oid;
         this.request = request;
         this.date = date;
-        this.obs="";
+        this.obs=obs;
     }
 
-    public void setObs(String obs) {
-        this.obs = obs;
-    }
-
-    public void setRequest(String request) {
-        this.request = request;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 
 
     public String getName() {
         return name;
     }
-
-
 
     public String getOid() {
         return oid;
@@ -50,10 +37,33 @@ public class ReturnedProduct {
         return uname;
     }
 
+    public String getObs() {
+        return obs;
+    }
+
+    public String getDate() {
+        return date;
+    }
+    public String getRequest() {
+        return request;
+    }
+
+
     public void setName(String name) {
         this.name = name;
     }
 
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+
+    public void setRequest(String request) {
+        this.request = request;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
 
     public void setOid(String oid) {

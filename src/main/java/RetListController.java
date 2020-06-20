@@ -71,8 +71,8 @@ public class RetListController implements Initializable {
                         String id_o = (String) y.get("Order code");
                         String id_p = (String) y.get("Product ID");
                         String d = (String) y.get("Date");
-                        //String observ = (String) y.get("Observations");
-                        obs.add(new ReturnedProduct(id_r, id_o, id_p, d));
+                        String observ = "";
+                        obs.add(new ReturnedProduct(id_r, id_o, id_p, d,observ));
                     }
 
                 }
