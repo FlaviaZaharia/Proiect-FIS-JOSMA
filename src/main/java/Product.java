@@ -16,6 +16,7 @@ public class Product {
     private String id;
     private ImageView picture;
     private Button button;
+    private String q;
 
     public Product() {
 
@@ -29,11 +30,20 @@ public class Product {
         this.picture = picture;
         this.button=button;
     }
-    public Product(String name, String price, String quant, String id) {
-        this.name=name;
-        this.price=price;
-        this.quantity= new TextField(quant);
-        this.id=id;
+    public Product(String name,String material, String quantity, String id) {
+        this.name = name;
+        this.material = material;
+        this.quantity = new TextField(quantity);
+        this.q=quantity;
+        this.id = id;
+    }
+
+    public String getQ() {
+        return q;
+    }
+
+    public void setQ(String q) {
+        this.q = q;
     }
 
     public String getName() {

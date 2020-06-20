@@ -58,7 +58,7 @@ public class ReturnRequests implements Initializable {
     }
     ObservableList<ReturnedProduct> aux=FXCollections.observableArrayList();
    ObservableList<ReturnedProduct> prod= FXCollections.observableArrayList();
-    ObservableList<ReturnedProduct> aux1= FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
