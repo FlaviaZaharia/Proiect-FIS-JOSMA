@@ -42,23 +42,23 @@ public class RegisterController implements Initializable{
          mainPane.getChildren().setAll(pane);
      }
     @FXML
-    private ChoiceBox<String> choiceBox=new ChoiceBox<>();
+    ChoiceBox<String> choiceBox=new ChoiceBox<>();
     //@FXML
     //private Text registrationMessage;
     @FXML
-    private PasswordField passwordField;
+    PasswordField passwordField;
     @FXML
-    private TextField usernameField;
+    TextField usernameField;
     @FXML
-    private TextField emailField;
+    TextField emailField;
     @FXML
-    private TextField addressField;
+    TextField addressField;
     @FXML
-    private TextField numberField;
+    TextField numberField;
     @FXML
-    private TextField firstNameField;
+    TextField firstNameField;
     @FXML
-    private TextField lastNameField;
+    TextField lastNameField;
     @FXML
     private Text registerMessage;
     @FXML

@@ -50,10 +50,10 @@ public class RetListController implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    //@Override
+   public void initialize(URL location, ResourceBundle resources) {
 
-        File file = new File("src/main/resources/returns.json");
+       File file = new File("src/main/resources/returns.json");
         if (file.length() != 0) {
             JSONParser jsonParser = new JSONParser();
             try {
@@ -62,11 +62,10 @@ public class RetListController implements Initializable {
 
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
-                    String num = (String) y.get("Name");
+                    String num = (String) y.get("User");
                     System.out.println(num);
-                    String result = ShowOrders.readjson(num);
-                    System.out.println(result);
-                    if ("yes".equals(result)) {
+
+                    if (LoginController.user.getUsername().equals(num)) {
                         String id_r = (String) y.get("Request ID");
                         String id_o = (String) y.get("Order code");
                         String id_p = (String) y.get("Product ID");

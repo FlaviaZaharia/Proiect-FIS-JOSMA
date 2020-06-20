@@ -20,10 +20,7 @@ public class ReturnProductController {
     @FXML
     private AnchorPane returnanchor;
     @FXML
-    private TextField name_field;
-    @FXML
     private TextField id_field;
-
     @FXML
     private TextField code_field;
     @FXML
@@ -42,11 +39,7 @@ public class ReturnProductController {
     }
     @FXML
     void send(ActionEvent event) {
-        if (name_field.getText() == null || name_field.getText().isEmpty()) {
-            showMessageDialog(null, "Please type in the name!");
-            return;
-        }
-        name=name_field.getText();
+
         if (id_field.getText() == null || id_field.getText().isEmpty()) {
             showMessageDialog(null, "Please type in the ID of the product!");
             return;
@@ -91,8 +84,7 @@ public class ReturnProductController {
         JSONArray use=new JSONArray();
         JSONObject list=new JSONObject();
         readRequests(use);
-       //obj.put("User",LoginController.user.getUsername());
-       obj.put("Name",name_field.getText());
+        obj.put("User",LoginController.user.getUsername());
         obj.put("Product ID",id_field.getText());
         obj.put("Order code",code_field.getText());
         obj.put("Reason",reason_field.getText());

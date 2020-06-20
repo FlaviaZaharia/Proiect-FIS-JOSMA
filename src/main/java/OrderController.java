@@ -24,8 +24,6 @@ import java.util.UUID;
 public class OrderController implements Initializable {
 
     @FXML
-    private TextField name_field;
-    @FXML
     private AnchorPane order;
     @FXML
     private TextField address_field;
@@ -48,10 +46,6 @@ public class OrderController implements Initializable {
     }
     @FXML
     void finish_order(ActionEvent event) throws IOException {
-        if (name_field.getText() == null || name_field.getText().isEmpty()) {
-            msgbox("Name cannot be empty!");
-            return;
-        }
 
         if (address_field.getText() == null || address_field.getText().isEmpty()) {
             msgbox("Address cannot be empty");
@@ -106,7 +100,7 @@ public class OrderController implements Initializable {
         JSONObject list=new JSONObject();
         JSONArray prod_list=new JSONArray();
         readFromFile(use);
-        obj.put("Name",name_field.getText());
+        obj.put("User",LoginController.user.getUsername()); //aici
         obj.put("Address",address_field.getText());
         obj.put("Shipping",(String)choicebox.getValue());
         obj.put("Total sum",CartController.sum());

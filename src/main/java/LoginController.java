@@ -42,7 +42,7 @@ public class LoginController {
     @FXML
     private ChoiceBox choiceBox;
 
- // public static User user=new User();
+ public static User user=new User();
 
     @FXML
     public void click(ActionEvent event) throws IOException, ParseException {       //login
@@ -57,7 +57,7 @@ public class LoginController {
         }
              if (getRole(usernameField.getText(),passwordField.getText()).equals("Customer")) {
                  AnchorPane pane1 = FXMLLoader.load(getClass().getResource("app.fxml"));
-                rootPane.getChildren().setAll(pane1); //user.setUsername(usernameField.getText());
+                rootPane.getChildren().setAll(pane1); user.setUsername(usernameField.getText()); //aici
                  }
              else if (getRole(usernameField.getText(),passwordField.getText()).equals("Employee")) {
                  AnchorPane pane2= FXMLLoader.load(getClass().getResource("app2.fxml"));

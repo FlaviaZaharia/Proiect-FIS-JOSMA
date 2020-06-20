@@ -75,7 +75,7 @@ public class ReturnRequests implements Initializable {
                     String order_id=(String) y.get("Order code");
                     String prod_id=(String) y.get("Product ID");
                     String reason=(String) y.get("Reason");
-                    String num=(String) y.get("Name");
+                    String num=(String) y.get("User");
                     String data=(String) y.get("Date");
                     String info=(String) y.get("Observations");
                     if(info.equals("")) {
@@ -112,7 +112,7 @@ public class ReturnRequests implements Initializable {
         for(ReturnedProduct p:aux)
         {
             JSONObject obj = new JSONObject();
-          obj.put("Name",p.getName());
+          obj.put("User",p.getName());
           obj.put("Date",p.getDate());
           obj.put("Request ID",p.getRequest());
           obj.put("Order code",p.getOid());

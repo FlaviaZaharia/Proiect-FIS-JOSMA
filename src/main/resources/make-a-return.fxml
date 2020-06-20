@@ -15,7 +15,5 @@
       <Text layoutX="53.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-font-size: 15;" text="Reason" />
       <Button layoutX="164.0" layoutY="269.0" mnemonicParsing="false" onAction="#send" prefHeight="25.0" prefWidth="56.0" style="-fx-font-family: Elephant;" text="Send" />
       <Button layoutX="280.0" layoutY="269.0" mnemonicParsing="false" onAction="#cancel" style="-fx-font-family: Elephant;" text="Cancel" />
-      <TextField fx:id="name_field" layoutX="164.0" layoutY="72.0" prefHeight="25.0" prefWidth="174.0" />
-      <Text layoutX="53.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant; -fx-font-size: 15;" text="Name" />
    </children>
 </AnchorPane>

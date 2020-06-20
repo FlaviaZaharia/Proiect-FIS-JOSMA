@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane_add" prefHeight="418.0" prefWidth="655.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddProductController">
+<AnchorPane fx:id="pane_add" prefHeight="418.0" prefWidth="655.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddProductController">
    <children>
       <TextField fx:id="nameField" layoutX="205.0" layoutY="88.0" prefHeight="25.0" prefWidth="216.0" />
       <TextField fx:id="priceField" layoutX="206.0" layoutY="120.0" prefHeight="25.0" prefWidth="216.0" />
@@ -20,5 +20,6 @@
       <Button layoutX="277.0" layoutY="308.0" mnemonicParsing="false" onAction="#addproduct" prefHeight="41.0" prefWidth="77.0" style="-fx-font-family: Elephant;" text="Finish" />
       <TextField fx:id="pictureField" layoutX="208.0" layoutY="246.0" prefHeight="25.0" prefWidth="216.0" />
       <Text layoutX="80.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Image source" />
+      <Button layoutX="25.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="back" />
    </children>
 </AnchorPane>

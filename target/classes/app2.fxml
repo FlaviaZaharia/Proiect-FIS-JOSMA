@@ -11,6 +11,6 @@
       <Button layoutX="276.0" layoutY="233.0" mnemonicParsing="false" onAction="#orders" prefHeight="25.0" prefWidth="165.0" style="-fx-font-family: Elephant;" text="List of orders" />
       <Button layoutX="276.0" layoutY="272.0" mnemonicParsing="false" onAction="#returnp" prefHeight="25.0" prefWidth="165.0" style="-fx-font-family: Elephant;" text="List of return products" />
       <Button layoutX="276.0" layoutY="314.0" mnemonicParsing="false" onAction="#stock" prefHeight="25.0" prefWidth="165.0" style="-fx-font-family: Elephant;" text="Stock list" />
-      <Button layoutX="328.0" layoutY="348.0" mnemonicParsing="false" onAction="#logout" style="-fx-font-family: Elephant;" text="Log Out" />
+      <Button layoutX="328.0" layoutY="349.0" mnemonicParsing="false" onAction="#signout" style="-fx-font-family: Elephant;" text="Log out" />
    </children>
 </AnchorPane>
