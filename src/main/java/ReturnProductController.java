@@ -87,14 +87,12 @@ public class ReturnProductController {
 
 
    public void handle_return_request() {
-        //scriere in user.json
-        //String username_getter=s;
         JSONObject obj = new JSONObject();
         JSONArray use=new JSONArray();
         JSONObject list=new JSONObject();
         readRequests(use);
-       // obj.put("User",s);
-        obj.put("Name",name_field.getText());
+       //obj.put("User",LoginController.user.getUsername());
+       obj.put("Name",name_field.getText());
         obj.put("Product ID",id_field.getText());
         obj.put("Order code",code_field.getText());
         obj.put("Reason",reason_field.getText());
@@ -105,7 +103,6 @@ public class ReturnProductController {
         list.put("Return requests",use);
 
         try {
-            // Constructs a FileWriter given a file name, using the platform's default charset
             file = new FileWriter("src/main/resources/returns.json");
             file.write(list.toJSONString());
         } catch (IOException e) {

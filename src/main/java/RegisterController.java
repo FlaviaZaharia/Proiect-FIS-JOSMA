@@ -180,7 +180,6 @@ public class RegisterController implements Initializable{
         JSONObject list=new JSONObject();
         readFromFile(use);
         obj.put("User:",usernameField.getText());
-        //obj.put("Password:",passwordField.getText());
         obj.put("Password:",UserService.cryptPassword(passwordField.getText()));
         obj.put("First Name:",firstNameField.getText());
         obj.put("Last Name:",lastNameField.getText());

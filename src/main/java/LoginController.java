@@ -42,7 +42,7 @@ public class LoginController {
     @FXML
     private ChoiceBox choiceBox;
 
-
+ // public static User user=new User();
 
     @FXML
     public void click(ActionEvent event) throws IOException, ParseException {       //login
@@ -55,10 +55,10 @@ public class LoginController {
             showMessageDialog(null, "Please type in the password!");
             return;
         }
-        //if (readUsers(usernameField.getText(),passwordField.getText())) {
              if (getRole(usernameField.getText(),passwordField.getText()).equals("Customer")) {
                  AnchorPane pane1 = FXMLLoader.load(getClass().getResource("app.fxml"));
-                rootPane.getChildren().setAll(pane1); }
+                rootPane.getChildren().setAll(pane1); //user.setUsername(usernameField.getText());
+                 }
              else if (getRole(usernameField.getText(),passwordField.getText()).equals("Employee")) {
                  AnchorPane pane2= FXMLLoader.load(getClass().getResource("app2.fxml"));
                  rootPane.getChildren().setAll(pane2);
@@ -72,7 +72,6 @@ public class LoginController {
        AnchorPane pane = FXMLLoader.load(getClass().getResource("register.fxml"));
        rootPane.getChildren().setAll(pane);
     }
-
     public String getRole (String user, String parola) throws org.json.simple.parser.ParseException { //read from file
         File file=new File("src\\main\\resources\\user.json");
         String flag="";
