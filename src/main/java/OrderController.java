@@ -35,6 +35,7 @@ public class OrderController implements Initializable {
     private static String order_code;
     LocalDate date = LocalDate.now();
     private ObservableList list= FXCollections.observableArrayList();
+
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     public void initialize(URL location, ResourceBundle resources) {
         loadData(); //choiceBox

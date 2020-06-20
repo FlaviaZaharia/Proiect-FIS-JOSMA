@@ -1,3 +1,5 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
@@ -10,6 +12,8 @@ public class Order {
     private String observation;
     private TextField obs;
     private ChoiceBox<String> ch;
+    private String c;
+    private ObservableList<Product> pr= FXCollections.observableArrayList();
 
     public Order(String code, String data, String total, String status,String obs) {
         this.code = code;
@@ -18,10 +22,11 @@ public class Order {
         this.status = status;
         this.observation =obs;
     }
-    public Order(String code, String obs, ChoiceBox<String> a) {
+    public Order(String code, String obs, ChoiceBox<String> a){ // ObservableList<Product> p) {
         this.code = code;
         this.obs =new TextField(obs);
         this.ch = a;
+        //this.pr=p;
     }
 
     public String getCode() {
@@ -78,5 +83,21 @@ public class Order {
 
     public void setObservation(String observation) {
         this.observation = observation;
+    }
+
+    public ObservableList<Product> getPr() {
+        return pr;
+    }
+
+    public void setPr(ObservableList<Product> pr) {
+        this.pr = pr;
+    }
+
+    public String getC() {
+        return c;
+    }
+
+    public void setC(String c) {
+        this.c = c;
     }
 }

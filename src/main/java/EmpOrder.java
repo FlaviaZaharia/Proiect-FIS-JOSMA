@@ -38,6 +38,8 @@ public class EmpOrder implements Initializable {
         private TableColumn<Order,String> stat_col;
 
     private ObservableList<Order> ord= FXCollections.observableArrayList();
+    private ObservableList<Order> aux=FXCollections.observableArrayList();
+    private ObservableList<Order> list=FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File file = new File("src/main/resources/orders.json");
@@ -49,11 +51,11 @@ public class EmpOrder implements Initializable {
 
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
+
                     String code = (String) y.get("Order code");
                     TextField observ= new TextField();
                     String obs=observ.getText();
                     ChoiceBox<String> c=new ChoiceBox<String>();
-                    //loadData(c);
                     c.getItems().addAll("Pending","Accepted","Rejected","Delivered");
                     c.setValue("Pending");
                     ord.add(new Order(code,obs,c));
@@ -92,9 +94,11 @@ public class EmpOrder implements Initializable {
 
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
+                    ObservableList<Product> p=FXCollections.observableArrayList();
                     String code = (String) y.get("Order code");
                     if (code.equals(id)) {
                         y.put(a,b);
+
                     }
                     x.add(y);
                 }
