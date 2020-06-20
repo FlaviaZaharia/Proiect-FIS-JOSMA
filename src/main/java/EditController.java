@@ -89,7 +89,7 @@ public class EditController {
         }
     }
     private static FileWriter file;
-    public void write_to_json(String x, String y) {
+    public  void write_to_json(String x, String y) {
         JSONObject obj = new JSONObject();
         JSONArray use = new JSONArray();
         JSONObject list = new JSONObject();
