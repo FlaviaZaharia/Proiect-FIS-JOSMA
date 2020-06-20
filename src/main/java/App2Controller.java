@@ -45,5 +45,10 @@ public class App2Controller {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("stock.fxml"));
         anchor1.getChildren().setAll(pane);
     }
+    @FXML
+    void logout(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("login.fxml"));
+        anchor1.getChildren().setAll(pane);
+    }
 
 }
