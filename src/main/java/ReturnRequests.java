@@ -58,6 +58,7 @@ public class ReturnRequests implements Initializable {
     }
     ObservableList<ReturnedProduct> aux=FXCollections.observableArrayList();
    ObservableList<ReturnedProduct> prod= FXCollections.observableArrayList();
+    ObservableList<ReturnedProduct> aux1= FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -76,9 +77,13 @@ public class ReturnRequests implements Initializable {
                     String reason=(String) y.get("Reason");
                     String num=(String) y.get("Name");
                     String data=(String) y.get("Date");
-                    TextField t= new TextField();
-                    String obs_field = t.getText();
-                    prod.add(new ReturnedProduct(prod_id,order_id,obs_field,req_id,reason,data,num));
+                    String info=(String) y.get("Observations");
+                    if(info.equals("")) {
+                        TextField t = new TextField();
+                        String obs_field = t.getText();
+                        prod.add(new ReturnedProduct(prod_id, order_id, obs_field, req_id, reason, data, num));
+                    }
+                    else aux.add(new ReturnedProduct(prod_id, order_id, info, req_id, reason, data, num));
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
