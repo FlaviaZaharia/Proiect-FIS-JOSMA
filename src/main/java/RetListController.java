@@ -29,8 +29,7 @@ public class RetListController {
     @FXML
     private TableView<ReturnedProduct> table;
 
-    @FXML
-    private TableColumn<ReturnedProduct,String> col_name;
+
 
     @FXML
     private TableColumn<ReturnedProduct,String> col_pid;
@@ -61,14 +60,15 @@ public class RetListController {
 
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
-                    String name_field=(String) y.get("Name");
-                    String pid_field=(String) y.get("Product ID");
-                    String oid_field=(String) y.get("Order code");
-                    String date_field=(String) y.get("Date");
-                    Label obs_field=new Label();
-                    if(ReturnProductController.name.equals(name_field)){
-                        String nme=findName(pid_field);
-                        list.add(new ReturnedProduct(nme,pid_field,oid_field,obs_field, date_field));}
+                    String nume=(String) y.get("Name");
+                    String result=readjson(nume);
+
+                    if("yes".equals(result)){
+                        String pid_field=(String) y.get("Product ID");
+                        String oid_field=(String) y.get("Order code");
+                        String date_field=(String) y.get("Date");
+                        Label obs_field=new Label();
+                        list.add(new ReturnedProduct(pid_field,oid_field,obs_field, date_field));}
 
                 }
             }
@@ -80,7 +80,7 @@ public class RetListController {
                 e.printStackTrace();
             }
         }
-        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        //col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_pid.setCellValueFactory(new PropertyValueFactory<>("pid"));
         col_oid.setCellValueFactory(new PropertyValueFactory<>("oid"));
         col_rdate.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -88,7 +88,7 @@ public class RetListController {
         table.setItems(list);
     }
 
-    public String findName(String x) throws org.json.simple.parser.ParseException{
+    /*public String findName(String x) throws org.json.simple.parser.ParseException{
         File file=new File("src\\main\\resources\\productslist.json");
         String flag="";
         if(file.length()!=0) {
@@ -101,6 +101,32 @@ public class RetListController {
                     JSONObject innerObj=(JSONObject) i.next();
                     if (innerObj.get("Product ID").equals(x))
                         flag+=innerObj.get("Name");
+                }
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return flag;
+    }*/
+
+    public String readjson (String s) throws org.json.simple.parser.ParseException { //read from file
+        File file=new File("src\\main\\resources\\user.json");
+        String flag="";
+        if(file.length()!=0) {
+            JSONParser jsonParser = new JSONParser();
+            try {
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\main\\resources\\user.json"));
+                JSONArray jsonArray = (JSONArray) jsonObject.get("user");
+                Iterator i=jsonArray.iterator();
+                while(i.hasNext()){
+                    JSONObject innerObj=(JSONObject) i.next();
+                    if (innerObj.get("First Name:").equals(s))
+                        flag="yes";
                 }
 
             } catch (FileNotFoundException e) {

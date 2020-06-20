@@ -10,9 +10,9 @@ public class ReturnedProduct {
     private Label obs;
     private String date;
 
-    public ReturnedProduct(String name, String pid, String oid, Label obs, String date) {
+    public ReturnedProduct(String pid, String oid, Label obs, String date) {
         //this.uname=uname;
-        this.name=name;
+       // this.name=name;
         this.pid=pid;
         this.oid=oid;
         this.obs=obs;

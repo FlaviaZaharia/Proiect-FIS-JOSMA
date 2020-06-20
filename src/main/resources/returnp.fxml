@@ -16,11 +16,10 @@
       </Text>
       <TableView fx:id="table" layoutY="50.0" prefHeight="350.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="name_field" prefWidth="106.4000244140625" text="Product name" />
-          <TableColumn fx:id="pid_field" prefWidth="92.79998779296875" text="Product ID" />
-            <TableColumn fx:id="oid_field" prefWidth="103.20001220703125" text="Order ID" />
-            <TableColumn fx:id="rdate_field" prefWidth="113.5999755859375" text="Request Date" />
-            <TableColumn fx:id="obs_field" prefWidth="184.00006103515625" text="observations" />
+          <TableColumn fx:id="pid_field" prefWidth="119.199951171875" text="Product ID" />
+            <TableColumn fx:id="oid_field" prefWidth="111.2000732421875" text="Order ID" />
+            <TableColumn fx:id="rdate_field" prefWidth="141.60003662109375" text="Request Date" />
+            <TableColumn fx:id="obs_field" prefWidth="228.0" text="observations" />
         </columns>
       </TableView>
       <Button layoutY="1.0" mnemonicParsing="false" onAction="#back" text="back" />

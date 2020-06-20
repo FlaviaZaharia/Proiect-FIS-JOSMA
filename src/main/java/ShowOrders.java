@@ -58,9 +58,9 @@ public class ShowOrders implements Initializable {
                 for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject y = (JSONObject) jsonArray.get(i);
                 String num=(String) y.get("Name");
-                System.out.println(num);
+                //System.out.println(num);
                 String result=readjson(num);
-                System.out.println(result);
+                //System.out.println(result);
                 if("yes".equals(result)) {
                     String status = (String) y.get("Status");
                     String code = (String) y.get("Order code");
