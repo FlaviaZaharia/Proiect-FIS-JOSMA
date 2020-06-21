@@ -96,12 +96,12 @@ public class ShowOrders implements Initializable {
         ancor.getChildren().setAll(pane);
     }
     public  String readjson (String s) throws org.json.simple.parser.ParseException { //read from file
-        File file=new File("src\\main\\resources\\user.json");
+        File file=new File("src/main/resources/user.json");
         String flag="";
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\main\\resources\\user.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/user.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("user");
                 Iterator i=jsonArray.iterator();
                 while(i.hasNext()){

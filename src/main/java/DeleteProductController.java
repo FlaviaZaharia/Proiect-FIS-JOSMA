@@ -39,11 +39,11 @@ public class DeleteProductController {
     }
 
     public void findProduct(JSONArray x ,String prod_id){ //read from file
-        File file=new File("D:\\JOSMA\\src\\main\\resources\\productslist.json");
+        File file=new File("src/main/resources/productslist.json");
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\productslist.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/productslist.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Product");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
@@ -71,7 +71,7 @@ public class DeleteProductController {
 
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("D:\\JOSMA\\src\\main\\resources\\productslist.json");
+            file = new FileWriter("src/main/resources/productslist.json");
             file.write(list.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();

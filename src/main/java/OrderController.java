@@ -79,7 +79,7 @@ public class OrderController implements Initializable {
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\orders.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/orders.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Orders");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
@@ -123,7 +123,7 @@ public class OrderController implements Initializable {
 
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("D:\\JOSMA\\src\\main\\resources\\orders.json");
+            file = new FileWriter("src/main/resources/orders.json");
             file.write(list.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();

@@ -73,12 +73,12 @@ public class LoginController {
        rootPane.getChildren().setAll(pane);
     }
     public String getRole (String user, String parola) throws org.json.simple.parser.ParseException { //read from file
-        File file=new File("D:\\JOSMA\\src\\main\\resources\\user.json");
+        File file=new File("src/main/resources/user.json");
         String flag="";
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\user.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/user.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("user");
                 Iterator i=jsonArray.iterator();
                 while(i.hasNext()){
