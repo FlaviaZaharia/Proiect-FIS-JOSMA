@@ -18,13 +18,13 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public class ReturnProductController {
     @FXML
-    private AnchorPane returnanchor;
+    AnchorPane returnanchor;
     @FXML
-    private TextField id_field;
+    TextField id_field;
     @FXML
-    private TextField code_field;
+    TextField code_field;
     @FXML
-    private TextField reason_field;
+    TextField reason_field;
     private static FileWriter file;
     public static String name;
     LocalDate date = LocalDate.now();
@@ -58,11 +58,11 @@ public class ReturnProductController {
 
 
     public void readRequests(JSONArray x ){ //read from file
-        File file=new File("src/main/resources/returns.json");
+        File file=new File(file1);
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/returns.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file1));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Return requests");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
@@ -78,7 +78,7 @@ public class ReturnProductController {
         }
     }
 
-
+  String file1="src/main/resources/returns.json";
    public void handle_return_request() {
         JSONObject obj = new JSONObject();
         JSONArray use=new JSONArray();

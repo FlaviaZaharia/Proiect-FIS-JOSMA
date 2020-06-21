@@ -24,15 +24,13 @@ import java.util.UUID;
 public class OrderController implements Initializable {
 
     @FXML
-    private AnchorPane order;
+    AnchorPane order;
     @FXML
-    private TextField address_field;
-
+    TextField address_field;
     @FXML
-    private ChoiceBox<String> choicebox=new ChoiceBox<>();
-    private static String order_code;
+    ChoiceBox<String> choicebox=new ChoiceBox<>();
     LocalDate date = LocalDate.now();
-    private ObservableList list= FXCollections.observableArrayList();
+    ObservableList list= FXCollections.observableArrayList();
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,13 +71,13 @@ public class OrderController implements Initializable {
         }
 
 
-
+    String file1="src/main/resources/orders.json";
     public void readFromFile(JSONArray x ){ //read from file
-        File file=new File("src/main/resources/orders.json");
+        File file=new File(file1);
         if(file.length()!=0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/orders.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file1));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Orders");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
@@ -95,13 +93,13 @@ public class OrderController implements Initializable {
         }
     }
   static  FileWriter file;
-    private void handle_write_toJSON() {
+    public void handle_write_toJSON() {
         JSONObject obj = new JSONObject();
         JSONArray use=new JSONArray();
         JSONObject list=new JSONObject();
         JSONArray prod_list=new JSONArray();
         readFromFile(use);
-        obj.put("User",LoginController.user.getUsername()); //aici
+        obj.put("User",LoginController.user.getUsername());
         obj.put("Address",address_field.getText());
         obj.put("Shipping",(String)choicebox.getValue());
         obj.put("Total sum",CartController.sum());
@@ -122,8 +120,8 @@ public class OrderController implements Initializable {
         list.put("Orders",use);
 
         try {
-            // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("src/main/resources/orders.json");
+
+            file = new FileWriter(file1);
             file.write(list.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();

@@ -63,7 +63,6 @@ public class RetListController implements Initializable {
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject y = (JSONObject) jsonArray.get(i);
                     String num = (String) y.get("User");
-                    System.out.println(num);
 
                     if (LoginController.user.getUsername().equals(num)) {
                         String id_r = (String) y.get("Request ID");
