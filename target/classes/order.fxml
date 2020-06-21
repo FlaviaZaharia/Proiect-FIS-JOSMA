@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="order" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OrderController">
+   <children>
+      <Text layoutX="14.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Address:" />
+      <Text layoutX="12.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Shipping method" wrappingWidth="106.5159912109375" />
+      <Text layoutX="137.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Elephant;" text="Checkout" textAlignment="CENTER" underline="true" wrappingWidth="298.13671875">
+         <font>
+            <Font name="Javanese Text" size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="address_field" layoutX="130.0" layoutY="109.0" prefHeight="26.0" prefWidth="394.0" />
+      <Button layoutX="265.0" layoutY="215.0" mnemonicParsing="false" onAction="#finish_order" style="-fx-font-family: Elephant;" text="FINISH" />
+      <ChoiceBox fx:id="choicebox" layoutX="130.0" layoutY="143.0" prefHeight="25.0" prefWidth="394.0" />
+   </children>
+</AnchorPane>

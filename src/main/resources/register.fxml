@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterController">
+   <children>
+      <SplitPane layoutX="82.0" layoutY="40.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="mainPane" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="598.0" style="-fx-background-color: #000;">
+               <children>
+                  <TextField fx:id="firstNameField" layoutX="60.0" layoutY="36.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="446.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" AnchorPane.leftAnchor="23.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" AnchorPane.leftAnchor="23.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" AnchorPane.leftAnchor="23.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" AnchorPane.leftAnchor="23.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" AnchorPane.leftAnchor="23.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" AnchorPane.leftAnchor="23.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail " AnchorPane.leftAnchor="23.0" />
+                  <Text fill="WHITE" layoutX="23.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" AnchorPane.leftAnchor="23.0" />
+                  <TextField fx:id="lastNameField" layoutX="60.0" layoutY="63.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="446.0" />
+                  <TextField fx:id="usernameField" layoutX="60.0" layoutY="91.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="446.0" />
+                  <TextField fx:id="addressField" layoutX="100.0" layoutY="147.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="446.0" />
+                  <TextField fx:id="numberField" layoutX="100.0" layoutY="174.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="446.0" />
+                  <TextField fx:id="emailField" layoutX="100.0" layoutY="203.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="446.0" />
+                  <ImageView fitHeight="159.0" fitWidth="255.0" layoutX="318.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="177.0">
+                     <image>
+                        <Image url="@diamantele.jpg" />
+                     </image>
+                  </ImageView>
+                  <PasswordField fx:id="passwordField" layoutX="100.0" layoutY="119.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="446.0" />
+                  <Text fill="WHITE" layoutX="359.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Form" AnchorPane.rightAnchor="190.68099975585938">
+                     <font>
+                        <Font name="Elephant Italic" size="21.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="417.0" layoutY="223.0" mnemonicParsing="false" onAction="#afterRegister" text="Sign up" AnchorPane.rightAnchor="276.0" />
+                  <Button layoutX="419.0" layoutY="254.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="53.0" text="Cancel" />
+                  <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_MENU_ITEM" layoutX="120.0" layoutY="231.0" prefHeight="25.0" prefWidth="184.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
