@@ -40,11 +40,11 @@ public class EmpOrder implements Initializable {
     private ObservableList<Order> ord= FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("D:\\JOSMA\\src\\main\\resources\\orders.json");
+        File file = new File("src/main/resources/orders.json");
         if (file.length() != 0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\orders.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/orders.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Orders");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
@@ -88,11 +88,11 @@ public class EmpOrder implements Initializable {
         msgbox("Changes applied");
     }
     public void read(JSONArray x, String a, String b, String id) {
-        File file = new File("D:\\JOSMA\\src\\main\\resources\\orders.json");
+        File file = new File("src/main/resources/orders.json");
         if (file.length() != 0) {
             JSONParser jsonParser = new JSONParser();
             try {
-                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("D:\\JOSMA\\src\\main\\resources\\orders.json"));
+                JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/orders.json"));
                 JSONArray jsonArray = (JSONArray) jsonObject.get("Orders");
 
                 for (int i = 0; i < jsonArray.size(); i++) {
@@ -123,7 +123,7 @@ public class EmpOrder implements Initializable {
         list1.put("Orders", use);
 
         try {
-            file1 = new FileWriter("D:\\JOSMA\\src\\main\\resources\\orders.json");
+            file1 = new FileWriter("src/main/resources/orders.json");
             file1.write(list1.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
