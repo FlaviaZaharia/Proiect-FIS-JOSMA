@@ -53,7 +53,6 @@ public class ViewProductsController implements Initializable {
     private ObservableList<Product> obs= FXCollections.observableArrayList();
     public static ObservableList<Product> list=FXCollections.observableArrayList();
     private ObservableList<String> QColumn= FXCollections.observableArrayList();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File file=new File("src/main/resources/productslist.json");
@@ -69,7 +68,6 @@ public class ViewProductsController implements Initializable {
                     String name_field=(String) y.get("Name");
                     String price_field=(String) y.get("Price");
                     String material_field=(String) y.get("Material");
-                    //String quant=(String) y.get("Quantity");
                     String image_field =(String) y.get("Picture");
                     TextField t= new TextField();
                     String quantity_field = t.getText();

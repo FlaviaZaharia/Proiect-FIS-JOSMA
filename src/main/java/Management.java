@@ -42,7 +42,6 @@ public class Management {
         list1.put("Product", use);
 
         try {
-            // Constructs a FileWriter given a file name, using the platform's default charset
             file = new FileWriter("src/main/resources/productslist.json");
             file.write(list1.toJSONString());
         } catch (IOException e) {

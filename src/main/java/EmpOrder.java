@@ -123,7 +123,6 @@ public class EmpOrder implements Initializable {
         list1.put("Orders", use);
 
         try {
-            // Constructs a FileWriter given a file name, using the platform's default charset
             file1 = new FileWriter("D:\\JOSMA\\src\\main\\resources\\orders.json");
             file1.write(list1.toJSONString());
         } catch (IOException e) {

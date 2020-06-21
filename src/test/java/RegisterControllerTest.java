@@ -8,6 +8,10 @@ import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
+import static org.junit.Assert.assertEquals;
 
 public class RegisterControllerTest extends ApplicationTest {
     private RegisterController controller;
@@ -19,6 +23,10 @@ public class RegisterControllerTest extends ApplicationTest {
     private static final String ln = "last";
     private static final String fn = "first";
     private static final String r = "Employee";
+    private static final String file = "src/main/resources/test.json";
+
+    public RegisterControllerTest() throws FileNotFoundException {
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -43,12 +51,14 @@ public class RegisterControllerTest extends ApplicationTest {
         controller.lastNameField.setText(ln);
         controller.firstNameField.setText(fn);
         controller.choiceBox.setValue(r);
+        controller.filename = file;
 
     }
-
     @Test
-    public void testHandleRegister() {
+    public void testHandleRegister() throws FileNotFoundException {
         controller.handleRegistrationAction();
+        assertEquals(true,!file.isEmpty());
 
     }
 }
+

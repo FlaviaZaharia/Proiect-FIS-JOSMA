@@ -151,11 +151,11 @@ public class RegisterController implements Initializable{
 
 
   public void readFromFile(JSONArray x ){ //read from file
-        File file=new File("src/main/resources/user.json");
+        File file=new File(filename);
       if(file.length()!=0) {
           JSONParser jsonParser = new JSONParser();
           try {
-              JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/user.json"));
+              JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(filename));
               JSONArray jsonArray = (JSONArray) jsonObject.get("user");
 
                   for (int i = 0; i < jsonArray.size(); i++) {
@@ -171,7 +171,7 @@ public class RegisterController implements Initializable{
       }
       }
 
-
+    String filename="src/main/resources/user.json";
     public void handleRegistrationAction() {
 
         //scriere in user.json
@@ -192,7 +192,7 @@ public class RegisterController implements Initializable{
 
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("src/main/resources/user.json");
+            file = new FileWriter(filename);
             file.write(list.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();

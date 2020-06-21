@@ -22,11 +22,11 @@ public class Order {
         this.status = status;
         this.observation =obs;
     }
-    public Order(String code, String obs, ChoiceBox<String> a){ // ObservableList<Product> p) {
+    public Order(String code, String obs, ChoiceBox<String> a){
         this.code = code;
         this.obs =new TextField(obs);
         this.ch = a;
-        //this.pr=p;
+
     }
 
     public String getCode() {
@@ -85,9 +85,6 @@ public class Order {
         this.observation = observation;
     }
 
-    public ObservableList<Product> getPr() {
-        return pr;
-    }
 
     public void setPr(ObservableList<Product> pr) {
         this.pr = pr;
