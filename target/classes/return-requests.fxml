@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReturnRequests">
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReturnRequests">
    <children>
       <TableView fx:id="table" layoutY="32.0" prefHeight="326.0" prefWidth="600.0">
         <columns>
@@ -20,7 +19,7 @@
             <TableColumn fx:id="name_col" prefWidth="93.0" text="Name" />
         </columns>
       </TableView>
-      <Text layoutX="231.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RETURN REQUESTS" wrappingWidth="102.8671875" />
+      <Text layoutX="231.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RETURN REQUESTS" textAlignment="CENTER" wrappingWidth="118.8671875" />
       <Button layoutY="2.0" mnemonicParsing="false" onAction="#back" text="Back" />
       <Button layoutX="260.0" layoutY="361.0" mnemonicParsing="false" onAction="#save" text="SAVE" />
    </children>
